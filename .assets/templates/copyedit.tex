@@ -1,0 +1,47 @@
+%!TEX TS-program = xelatex
+\documentclass[12pt]{article}
+
+${ _common() }
+${ _pandoc() }
+
+\geometry{verbose,letterpaper,tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=4.5cm}
+\usepackage{lineno}
+\usepackage[nolists,noheads]{endfloat}
+
+\pagestyle{plain}
+
+\begin{document}
+
+{\large\bfseries ${ title }}
+\vskip 5em
+${ if(description) }
+\textbf{Abstract: }${ description }
+${ endif }
+\vfill
+Last revision: \emph{\today}
+
+\clearpage
+
+\section{Authors}
+
+${ authors:_list_authors()[\\] }
+
+\section{Affiliations}
+
+${ institutions:_list_institutions()[\\] }\\
+
+\section{Correspondance}
+
+${ for(authors) }
+${ if(it.email) }
+\textsuperscript{*}\,\,\texttt{${ it.email }}
+${ endif }
+${ endfor }
+
+\clearpage
+\linenumbers
+\doublespacing
+
+${ body }
+
+\end{document}

@@ -1,0 +1,38 @@
+%!TEX TS-program = xelatex
+\documentclass[11pt]{article}
+
+${ _common() }
+${ _pandoc() }
+
+\geometry{verbose,letterpaper,tmargin=2.2cm,bmargin=2.2cm,lmargin=2.2cm,rmargin=5cm}
+
+\pagestyle{plain}
+
+\begin{document}
+
+{\LARGE\bfseries ${ title }}
+
+\vskip 2em
+
+{\small
+${ authors:_list_authors()[, ] }
+\vskip 1em
+${ institutions:_list_institutions()[; ] }\\
+${ for(authors) }
+${ if(it.email) }
+\textsuperscript{*}\,\,\texttt{${ it.email }}
+${ endif }
+${ endfor }
+}
+
+\vskip 2em
+
+${ if(description) }
+\textbf{Abstract:}\,${ description }
+${ endif }
+
+\vskip 2em
+
+${ body }
+
+\end{document}
