@@ -49,53 +49,32 @@ Once those results were obtain, further investigations in the form of literature
 
 The two non-lyssaviruses associations have been previously reported in the literature (\textit{Sus scrofa} and orbivirus by Belaganhalli \textit{et al.}, 2015; \textit{Capra hircus} and the equine encephalomyelitis caused by an alphavirus as early as Purcell \textit{et al.}, 1976). This suggests that Singular Value Decomposition of available data on host-virus associations can uncover results that have been reported in the primary literature, but not incorporated in the main databases used in the field; based on the fact that the majority of the top 10 overall associations were able to be validated from the literature, we suggest that interactions that have no empirical evidence could be targets for additional sampling.
 
-\begin{table}
+| Rank 1                           | Rank 2                            |
+|----------------------------------|-----------------------------------|
+| \\textbf\{Artibeus jamaicensis\} | \\textbf\{Hipposideros pomona\}   |
+| \\textbf\{Scotophilus kuhlii\}   | \\textbf\{Scotophilus kuhlii\}    |
+| Molossus rufus                   | \\textbf\{Artibeus jamaicensis\}  |
+| Sturnira lilium                  | Carollia brevicauda               |
+| \\textbf\{Desmodus rotundus\}    | Chaerephon pumilus                |
+| Glossophaga soricina             | Molossus rufus                    |
+| Eptesicus fuscus                 | Glossophaga soricina              |
+| Tadarida brasiliensis            | \\textbf\{Desmodus rotundus\}     |
+| Myotis nigricans                 | Sturnira lilium                   |
+| Myotis lucifugus                 | \\textbf\{Hipposideros larvatus\} |
 
-      \caption{Top 10 potential bat hosts for Betacoronavirus}
-      
-      \label{sample-table}
-      \centering
-    \begin{tabular}{ll}
-        \toprule
-        Rank 1 & Rank 2 \\
-        \midrule
-        \textbf{Artibeus jamaicensis} & \textbf{Hipposideros pomona} \\
-        \textbf{Scotophilus kuhlii} & \textbf{Scotophilus kuhlii} \\
-        Molossus rufus & \textbf{Artibeus jamaicensis} \\
-        Sturnira lilium & Carollia brevicauda \\
-        \textbf{Desmodus rotundus} & Chaerephon pumilus \\
-        Glossophaga soricina & Molossus rufus \\
-        Eptesicus fuscus & Glossophaga soricina \\
-        Tadarida brasiliensis & \textbf{Desmodus rotundus} \\
-        Myotis nigricans & Sturnira lilium \\
-        Myotis lucifugus & \textbf{Hipposideros larvatus} \\
-        \bottomrule
-    \end{tabular}
-\end{table}
+| \{Hosts species\}                | \{Viruses genus\} |
+|----------------------------------|-------------------|
+| Sus scrofa                       | Lyssavirus        |
+| \\textit\{Hipposideros armiger\} | Lyssavirus        |
+| Rattus norvegicus                | Lyssavirus        |
+| Myodes glareolus                 | Lyssavirus        |
+| \\textit\{Pipistrellus abramus\} | Lyssavirus        |
+| Sus scrofa                       | Orbivirus         |
+| Capra hircus                     | Alphavirus        |
+| \\textit\{Rhinolophus sinicus\}  | Lyssavirus        |
+| \\textit\{Myotis ricketti\}      | Lyssavirus        |
+| \\textit\{Rhinolophus affinis\}  | Lyssavirus        |
 
-\begin{table}
-
-  \caption{Top 10 potential interactions among all hosts and viruses at rank 2}
-  
-  \label{sample-table}
-  \centering
-  \begin{tabular}{ll}
-    \toprule
-    {Hosts species} & {Viruses genus} \\
-    \midrule
-    Sus scrofa & Lyssavirus \\
-    \textit{Hipposideros armiger} & Lyssavirus \\
-    Rattus norvegicus & Lyssavirus \\
-    Myodes glareolus & Lyssavirus \\
-    \textit{Pipistrellus abramus} & Lyssavirus \\
-    Sus scrofa & Orbivirus \\
-    Capra hircus & Alphavirus \\
-    \textit{Rhinolophus sinicus} & Lyssavirus \\
-    \textit{Myotis ricketti} & Lyssavirus \\
-    \textit{Rhinolophus affinis} & Lyssavirus \\
-    \bottomrule
-  \end{tabular}
-\end{table}
 
 # Conclusion and future work
 
