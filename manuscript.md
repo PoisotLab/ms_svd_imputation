@@ -162,31 +162,31 @@ majority of the top 10 overall associations were able to be validated from the
 literature, we suggest that interactions that have no empirical evidence could
 be targets for additional sampling.
 
-| Rank 1                           | Rank 2                            |
-|----------------------------------|-----------------------------------|
-| \textbf\{Artibeus jamaicensis\} | \textbf\{Hipposideros pomona\}   |
-| \textbf\{Scotophilus kuhlii\}   | \textbf\{Scotophilus kuhlii\}    |
-| Molossus rufus                   | \textbf\{Artibeus jamaicensis\}  |
-| Sturnira lilium                  | Carollia brevicauda               |
-| \textbf\{Desmodus rotundus\}    | Chaerephon pumilus                |
-| Glossophaga soricina             | Molossus rufus                    |
-| Eptesicus fuscus                 | Glossophaga soricina              |
-| Tadarida brasiliensis            | \textbf\{Desmodus rotundus\}     |
-| Myotis nigricans                 | Sturnira lilium                   |
-| Myotis lucifugus                 | \textbf\{Hipposideros larvatus\} |
+| Rank 1                        | Rank 2                         |
+|-------------------------------|--------------------------------|
+| \textbf{Artibeus jamaicensis} | \textbf{Hipposideros pomona}   |
+| \textbf{Scotophilus kuhlii}   | \textbf{Scotophilus kuhlii}    |
+| Molossus rufus                | \textbf{Artibeus jamaicensis}  |
+| Sturnira lilium               | Carollia brevicauda            |
+| \textbf{Desmodus rotundus}    | Chaerephon pumilus             |
+| Glossophaga soricina          | Molossus rufus                 |
+| Eptesicus fuscus              | Glossophaga soricina           |
+| Tadarida brasiliensis         | \textbf{Desmodus rotundus}     |
+| Myotis nigricans              | Sturnira lilium                |
+| Myotis lucifugus              | \textbf{Hipposideros larvatus} |
 
-| \{Hosts species\}                | \{Viruses genus\} |
-|----------------------------------|-------------------|
-| Sus scrofa                       | Lyssavirus        |
-| \\textit\{Hipposideros armiger\} | Lyssavirus        |
-| Rattus norvegicus                | Lyssavirus        |
-| Myodes glareolus                 | Lyssavirus        |
-| \\textit\{Pipistrellus abramus\} | Lyssavirus        |
-| Sus scrofa                       | Orbivirus         |
-| Capra hircus                     | Alphavirus        |
-| \\textit\{Rhinolophus sinicus\}  | Lyssavirus        |
-| \\textit\{Myotis ricketti\}      | Lyssavirus        |
-| \\textit\{Rhinolophus affinis\}  | Lyssavirus        |
+| Hosts species                 | Viruses genus |
+|-------------------------------|---------------|
+| Sus scrofa                    | Lyssavirus    |
+| \textit{Hipposideros armiger} | Lyssavirus    |
+| Rattus norvegicus             | Lyssavirus    |
+| Myodes glareolus              | Lyssavirus    |
+| \textit{Pipistrellus abramus} | Lyssavirus    |
+| Sus scrofa                    | Orbivirus     |
+| Capra hircus                  | Alphavirus    |
+| \textit{Rhinolophus sinicus}  | Lyssavirus    |
+| \textit{Myotis ricketti}      | Lyssavirus    |
+| \textit{Rhinolophus affinis}  | Lyssavirus    |
 
 
 # Conclusion and future work
