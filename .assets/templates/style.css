@@ -100,3 +100,10 @@ tbody > tr:nth-child(even) {background: var(--pale)};
 tbody {
     border-bottom: 1px solid var(--structure);
 }
+#refs {
+    font-size: 90%;
+    column-count: 2;
+}
+.csl-entry {
+    padding-bottom: 1em;
+}
