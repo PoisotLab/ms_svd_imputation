@@ -12,10 +12,10 @@ hosts, and ultimately to human through zoonotic spillovers
 [@Plowright2017PatZoo], requires that we understand the complexity of our
 biological surroundings. Indeed, the fact that the majority of emerging
 infectious diseases are caused by zoonotic pathogens from wildlife sources
-(Jones *et al.*, 2008) gives some urgency to the task of predicting which
-viruses can be found in which hosts, so as to provide guidance on where and what
-species to sample and where spillovers are likely to happen(Johnson *et al.*,
-2020, 2020, @Albery2020PreGlo).).
+[@Jones2008GloTre] gives some urgency to the task of predicting which viruses
+can be found in which hosts, so as to provide guidance on where and what species
+to sample and where spillovers are likely to happen [@Johnson2020GloShi;
+@Albery2020PreGlo].
 
 As seen with SARS-CoV and MERS-CoV epidemics, novel human infections by viruses
 are representing a serious threat to global public health, and being able to
@@ -222,10 +222,6 @@ are strong candidates for empirical validation.
 # References
 
 Ginebreda, A., Sabater-Liesa, L., \& Barceló, D. (2019). Quantification of ecological complexity and resilience from multivariate biological metrics datasets using singular value decomposition entropy. MethodsX, 6, 1668-1676.
-
-Johnson, C. K., Hitchens, P. L., Pandit, P. S., Rushmore, J., Evans, T. S., Young, C. C., \& Doyle, M. M. (2020). Global shifts in mammalian population trends reveal key predictors of virus spillover risk. Proceedings of the Royal Society B, 287(1924), 20192736.
-
-Jones, K. E., Patel, N. G., Levy, M. A., Storeygard, A., Balk, D., Gittleman, J. L., \& Daszak, P. (2008). Global trends in emerging infectious diseases. Nature, 451(7181), 990-993.
 
 Potter, V. R. (1970). Bioethics, the science of survival. Perspectives in biology and medicine, 14(1), 127-153.
 
