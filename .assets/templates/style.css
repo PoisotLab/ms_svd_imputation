@@ -108,7 +108,7 @@ tbody {
     padding-bottom: 0.2em;
     padding-top: 0.2em;
 }
-#refs > .hanging-indent {
+.hanging-indent > .csl-entry {
     padding-left: 15px ;
     text-indent: -15px ;
 }
