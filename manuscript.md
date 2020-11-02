@@ -134,28 +134,28 @@ rabies-related viruses [@Warrell2004RabOth].
 
 Once those results were obtain, further investigations in the form of literature
 surveys allowed to identify that the interaction between *Pipistrellus* abramus}
-and lyssaviruses has already been noted by Hu *et al.* in 2018;
-@Shipley2019BatVir reported lyssavirus prevalence in the genus *Pipstrellus*,
-*Myotis*, and *Rhinolophus*. Other confirmed hosts of lyssaviruses are *Sus
-scrofa* (Satou *et al.*, 2004), and *Rattus norvegicus* (*e.g.* Wang *et al.*,
-2014). Surveillance for novel lyssaviruses infections is of great public health
-interest, since the rabies virus is fatal in all cases, once the onset of
-clinical symptoms has started (Banyard *et al.*, 2017). Although it is
-recognized that bats are identified as reservoir hosts for lyssaviruses, the
-mechanism allowing the maintenance of the virus in those populations is still
-poorly understood (Banyard *et al.*, 2017), and these predictions of
-interactions might serve as guidance in the monitoring of new infections. 
+and lyssaviruses has already been noted by @Hu2018LysJap; @Shipley2019BatVir
+reported lyssavirus prevalence in the genus *Pipstrellus*, *Myotis*, and
+*Rhinolophus*. Other confirmed hosts of lyssaviruses are *Sus scrofa* (Satou *et
+al.*, 2004), and *Rattus norvegicus* (*e.g.* Wang *et al.*, 2014). Surveillance
+for novel lyssaviruses infections is of great public health interest, since the
+rabies virus is fatal in all cases, once the onset of clinical symptoms has
+started [@Banyard2017ImpNov]. Although it is recognized that bats are identified
+as reservoir hosts for lyssaviruses, the mechanism allowing the maintenance of
+the virus in those populations is still poorly understood [@Banyard2017ImpNov],
+and these predictions of interactions might serve as guidance in the monitoring
+of new infections. 
 
 The two non-lyssaviruses associations have been previously reported in the
-literature (*Sus scrofa* and orbivirus by Belaganhalli *et al.*,
-2015; *Capra hircus* and the equine encephalomyelitis caused by an
-alphavirus as early as Purcell *et al.*, 1976). This suggests that
-Singular Value Decomposition of available data on host-virus associations can
-uncover results that have been reported in the primary literature, but not
-incorporated in the main databases used in the field; based on the fact that the
-majority of the top 10 overall associations were able to be validated from the
-literature, we suggest that interactions that have no empirical evidence could
-be targets for additional sampling.
+literature (*Sus scrofa* and orbivirus by @Belaganahalli2015GenCha; *Capra
+hircus* and the equine encephalomyelitis caused by an alphavirus as early as
+Purcell *et al.*, 1976). This suggests that Singular Value Decomposition of
+available data on host-virus associations can uncover results that have been
+reported in the primary literature, but not incorporated in the main databases
+used in the field; based on the fact that the majority of the top 10 overall
+associations were able to be validated from the literature, we suggest that
+interactions that have no empirical evidence could be targets for additional
+sampling.
 
 | Rank 1                   | Rank 2                    |
 |--------------------------|---------------------------|
@@ -221,14 +221,7 @@ are strong candidates for empirical validation.
 
 # References
 
-
-Banyard, A. C., \& Fooks, A. R. (2017). The impact of novel lyssavirus discovery. Microbiology Australia, 38(1), 17-21.
-
-Belaganahalli, M. N., Maan, S., Maan, N. S., Brownlie, J., Tesh, R., Attoui, H., \& Mertens, P. P. (2015). Genetic characterization of the tick-borne orbiviruses. Viruses, 7(5), 2185-2209.
-
 Ginebreda, A., Sabater-Liesa, L., \& Barceló, D. (2019). Quantification of ecological complexity and resilience from multivariate biological metrics datasets using singular value decomposition entropy. MethodsX, 6, 1668-1676.
-
-Hu, S. C., Hsu, C. L., Lee, M. S., Tu, Y. C., Chang, J. C., Wu, C. H., ... \& Tu, W. J. (2018). Lyssavirus in japanese pipistrelle, taiwan. Emerging infectious diseases, 24(4), 782.
 
 Johnson, C. K., Hitchens, P. L., Pandit, P. S., Rushmore, J., Evans, T. S., Young, C. C., \& Doyle, M. M. (2020). Global shifts in mammalian population trends reveal key predictors of virus spillover risk. Proceedings of the Royal Society B, 287(1924), 20192736.
 
