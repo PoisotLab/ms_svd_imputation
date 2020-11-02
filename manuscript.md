@@ -43,9 +43,9 @@ potential intermediates hosts in diseases transmissions.
 
 # Theory
 
-Singular Value Decomposition (SVD) is a linear algebra technique used to
-decompose a data matrix in a product of three matrices (Ginebreda *et al.*,
-2019):
+Singular Value Decomposition [SVD; @Golub1971SinVal; @Forsythe1967ComSol] is a
+linear algebra technique used to decompose a data matrix in a product of three
+matrices (Ginebreda *et al.*, 2019):
 
 $$\mathbf{X} =  \mathbf{U \Sigma V}^T$$ {#eq:svd}
 
@@ -54,18 +54,16 @@ unitary $m \times m$ matrix containing the left singular vectors, $\mathbf{V}$
 is an unitary $n \times n$ matrix containing the right singular vectors and
 $\mathbf{\Sigma}$ is a diagonal matrix containing the singular values ordered in
 decreasing order of importance, in regard of the quantity of information that
-they present.
+they present. This process allows data reduction by finding key correlations
+among entries and then by approximating the original matrix.  
 
-This process allows data reduction by finding key correlations among entries and
-then by approximating the original matrix.  
-
-\paragraph{Optimal Truncation} of the SVD at rank $r$  of the singular values
-will allow data reduction while keeping enough information to obtain a balance
-between complexity and accuracy within the model. We ran the analyses in *Julia*
-1.5.1 [@Bezanson2017JulFre]. Truncation at rank $r$ was performed by setting
-values $\mathbf{\Sigma}_{(r+1)..m}$ to 0 (we note the resulting vector
-$^{(r)}\mathbf{\Sigma}$), and the resulting low-rank approximation was obtained
-by
+Optimal truncation of the SVD at rank $r$ [@Eckart1936AppOne;@Golub1987GenEck]
+of the singular values will allow data reduction while keeping enough
+information to obtain a balance between complexity and accuracy within the
+model. We ran the analyses in *Julia* 1.5.1 [@Bezanson2017JulFre]. Truncation at
+rank $r$ was performed by setting values $\mathbf{\Sigma}_{(r+1)..m}$ to 0 (we
+note the resulting vector $^{(r)}\mathbf{\Sigma}$), and the resulting low-rank
+approximation was obtained by
 
 $$^{(r)}\mathbf{X} =  \mathbf{U} \, ^{(r)}\mathbf{\Sigma \, V}^T$$ {#eq:lowrank}
 
