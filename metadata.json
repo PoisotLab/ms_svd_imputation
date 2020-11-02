@@ -1,36 +1,49 @@
 {
-  "title": "Preprint template",
+  "title": "Singular Value Decomposition as an imputation method for host-virus interaction detection",
   "license": "CC-BY",
   "language": "en",
   "creators": [
     {
       "affiliations": [
-        "Université de Montréal",
+        "Département de Sciences Biologiques, Université de Montréal"
+      ],
+      "familyname": "Ouellet",
+      "givennames": "Marie-Andrée"
+    },
+    {
+      "affiliations": [
+        "Department of Biology, Georgetown University"
+      ],
+      "familyname": "Albery",
+      "givennames": "Gregory"
+    },
+    {
+      "affiliations": [
+        "Department of Biology, University of Oklahoma"
+      ],
+      "familyname": "Becker",
+      "givennames": "Dan"
+    },
+    {
+      "affiliations": [
+        "Center for Global Health Science and Security, Georgetown University Medical Center",
+        "Department of Microbiology and Immunology, Georgetown University Medical Center"
+      ],
+      "familyname": "Carlson",
+      "givennames": "Colin J."
+    }
+    {
+      "affiliations": [
+        "Département de Sciences Biologiques, Université de Montréal",
         "Québec Centre for Biodiversity Sciences"
       ],
       "familyname": "Poisot",
       "givennames": "Timothée",
       "email": "timothee.poisot@umontreal.ca",
       "orcid": "0000-0002-0735-5184"
-    },
-    {
-      "affiliations": [
-        "Inn of the Prancing Pony",
-        "Fellowship of the Ring"
-      ],
-      "familyname": "Took",
-      "givennames": "Peregrin"
-    },
-    {
-      "affiliations": [
-        "Green Dragon Inn",
-        "Fellowship of the Ring"
-      ],
-      "familyname": "Brandybuck",
-      "givennames": "Merriadoc"
     }
   ],
-  "description": "This template is used by the Poisot lab at Université de Montréal to write manuscripts using github. It uses github actions as a way to generate a website that can be annotated using hypothes.is, a PDF document for copy-editing and submission to journals, and a PDF document for submission to preprint servers. At every push on the master branch, the whole series of documents will get built.",
+  "description": "The current pandemic of SARS-CoV-2 is a stark reminder that we need a better understanding of the movements of viruses through novel animal hosts, and ultimately to humans. The task of predicting which virus can infect which host, and where spillovers are likely to happen, still remains difficult. Typically, anticipatory approaches can be limited by numerous difficulties (lack of suitable data, disagreement between models, etc.), and would therefore benefit from adding methods allowing imputation and producing results that could easily be added to ensemble models. In this study, we explore the potential of using the Singular Value Decomposition (SVD) technique as an imputation method to predict host-virus interactions.",
   "keywords": [
     "pandoc",
     "pandoc-crossref",
