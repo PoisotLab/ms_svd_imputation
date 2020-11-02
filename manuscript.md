@@ -48,11 +48,11 @@ decompose a data matrix in a product of three matrices (Ginebreda *et al.*,
 
 $$\mathbf{X} =  \mathbf{U \Sigma V}^T$$ {#eq:svd}
 
-Where $\mathbf{X}$ is a $mxn$ data matrix ($m \ge n$), $\mathbf{U}$ is
-an unitary $mxm$ matrix containing the left singular vectors, $\mathbf{V}$
-is an unitary $nxn$ matrix containing the right singular vectors and
-$\mathbf{\Sigma} $ is a diagonal matrix containing the singular values ordered
-in decreasing order of importance, in regard of the quantity of information that
+Where $\mathbf{X}$ is a $m \times n$ data matrix ($m \ge n$), $\mathbf{U}$ is an
+unitary $m \times m$ matrix containing the left singular vectors, $\mathbf{V}$
+is an unitary $n \times n$ matrix containing the right singular vectors and
+$\mathbf{\Sigma}$ is a diagonal matrix containing the singular values ordered in
+decreasing order of importance, in regard of the quantity of information that
 they present.
 
 This process allows data reduction by finding key correlations among entries and
