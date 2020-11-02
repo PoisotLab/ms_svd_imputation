@@ -22,7 +22,7 @@ are representing a serious threat to global public health, and being able to
 prevent future viral emergence now appears as a fundamental tool among our
 society. Zoonotic dynamics usually involve three main stages: transmission
 within the animal reservoir, cross-species spillover and transmission to human,
-and finally, transmission among humans (Lloyd-Smith *et al.*, 2009). In the past
+and finally, transmission among humans [@Lloyd-Smith2009EpiDyn]. In the past
 decades, substantial research effort has been put in studying and predicting
 dynamics at the animal-human interface, but tracing back the ultimate origin of
 novel zoonotic viruses remains a major difficulty [@Becker2020PreWil]. Also, the
@@ -233,8 +233,6 @@ Hu, S. C., Hsu, C. L., Lee, M. S., Tu, Y. C., Chang, J. C., Wu, C. H., ... \& Tu
 Johnson, C. K., Hitchens, P. L., Pandit, P. S., Rushmore, J., Evans, T. S., Young, C. C., \& Doyle, M. M. (2020). Global shifts in mammalian population trends reveal key predictors of virus spillover risk. Proceedings of the Royal Society B, 287(1924), 20192736.
 
 Jones, K. E., Patel, N. G., Levy, M. A., Storeygard, A., Balk, D., Gittleman, J. L., \& Daszak, P. (2008). Global trends in emerging infectious diseases. Nature, 451(7181), 990-993.
-
-Lloyd-Smith, J. O., George, D., Pepin, K. M., Pitzer, V. E., Pulliam, J. R., Dobson, A. P., \& Grenfell, B. T. (2009). Epidemic dynamics at the human-animal interface. science, 326(5958), 1362-1367.
 
 Potter, V. R. (1970). Bioethics, the science of survival. Perspectives in biology and medicine, 14(1), 127-153.
 
