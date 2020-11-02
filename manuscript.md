@@ -128,18 +128,17 @@ Based on this information, we have extracted the 10 highest scoring interactions
 across the entire matrix at rank 2 (Table 2). The results demonstrates that
 within the entire dataset, including all mammalian hosts and viruses' genus, 5
 out of the 10 highest scoring interactions are involving bat hosts (presented in
-*italic*), and 8 out of the 10 interactions are involving the lyssavirus
-genus. This genus includes the rabies virus (RABV), and other neurotropic
-rabies-related viruses (Warrell *et al.*, 2004).
+*italic*), and 8 out of the 10 interactions are involving the lyssavirus genus.
+This genus includes the rabies virus (RABV), and other neurotropic
+rabies-related viruses [@Warrell2004RabOth].
 
 Once those results were obtain, further investigations in the form of literature
-surveys allowed to identify that the interaction between *Pipistrellus*
-abramus} and lyssaviruses has already been noted by Hu *et al.* in 2018;
-Shipley *et al.* (2019) reported lyssavirus prevalence in the genus
-*Pipstrellus*, *Myotis*, and *Rhinolophus*. Other confirmed
-hosts of lyssaviruses are *Sus scrofa* (Satou *et al.*, 2004), and
-*Rattus norvegicus* (*e.g.* Wang *et al.*, 2014).
-Surveillance for novel lyssaviruses infections is of great public health
+surveys allowed to identify that the interaction between *Pipistrellus* abramus}
+and lyssaviruses has already been noted by Hu *et al.* in 2018;
+@Shipley2019BatVir reported lyssavirus prevalence in the genus *Pipstrellus*,
+*Myotis*, and *Rhinolophus*. Other confirmed hosts of lyssaviruses are *Sus
+scrofa* (Satou *et al.*, 2004), and *Rattus norvegicus* (*e.g.* Wang *et al.*,
+2014). Surveillance for novel lyssaviruses infections is of great public health
 interest, since the rabies virus is fatal in all cases, once the onset of
 clinical symptoms has started (Banyard *et al.*, 2017). Although it is
 recognized that bats are identified as reservoir hosts for lyssaviruses, the
@@ -213,12 +212,12 @@ overestimate the importance of viruses with a narrow host range, or
 underestimate the importance of generalist viruses. For this reason, we are
 confident that the performance of the approach can further be improved by
 fine-tuning the initial value used for imputation. A promising avenue in this
-regard is to rely on Stock *et al.* (2017) work on linear filtering --
-this provides a convenient way to assign weights to various aspects of network
-structure, and has been revealed to provide a good baseline estimate of how
-likely it is that a missing interaction actually exists. Combining an accurate
-model for the initial value with the SVD imputation is likely to generate
-predicted interactions that are strong candidates for empirical validation.
+regard is to rely on @Stock2017LinFil work on linear filtering -- this provides
+a convenient way to assign weights to various aspects of network structure, and
+has been revealed to provide a good baseline estimate of how likely it is that a
+missing interaction actually exists. Combining an accurate model for the initial
+value with the SVD imputation is likely to generate predicted interactions that
+are strong candidates for empirical validation.
 
 # References
 
@@ -237,8 +236,6 @@ Jones, K. E., Patel, N. G., Levy, M. A., Storeygard, A., Balk, D., Gittleman, J.
 
 Lloyd-Smith, J. O., George, D., Pepin, K. M., Pitzer, V. E., Pulliam, J. R., Dobson, A. P., \& Grenfell, B. T. (2009). Epidemic dynamics at the human-animal interface. science, 326(5958), 1362-1367.
 
-Plowright, R. K., Parrish, C. R., McCallum, H., Hudson, P. J., Ko, A. I., Graham, A. L., \& Lloyd-Smith, J. O. (2017). Pathways to zoonotic spillover. Nature Reviews Microbiology, 15(8), 502-510.
-
 Potter, V. R. (1970). Bioethics, the science of survival. Perspectives in biology and medicine, 14(1), 127-153.
 
 Pursell AR, Peckham JC, Cole JR, Stewart WC, Mitchell FE, (1972). Naturally occurring and artificially induced eastern encephalomyelitis in pigs. Journal of the American Veterinary Medical Association, 161(10):1143-1147.
@@ -247,10 +244,4 @@ Ren, W., Li, W., Yu, M., Hao, P., Zhang, Y., Zhou, P., ... \& Wang, L. F. (2006)
 
 Sato, G., Itou, T., Shoji, Y., Miura, Y., Mikami, T., Ito, M., ... \& Ito, F. H. (2004). Genetic and phylogenetic analysis of glycoprotein of rabies virus isolated from several species in Brazil. Journal of Veterinary Medical Science, 66(7), 747-753.
 
-Shipley, R., Wright, E., Selden, D., Wu, G., Aegerter, J., Fooks, A. R., \& Banyard, A. C. (2019). Bats and viruses: Emergence of novel lyssaviruses and association of bats with viral zoonoses in the eu. Tropical medicine and infectious disease, 4(1), 31.
-
-Stock, M., Poisot, T., Waegeman, W., \& De Baets, B. (2017). Linear filtering reveals false negatives in species interaction data. Scientific reports, 7(1), 1-8.
-
 Wang, L., Tang, Q., \& Liang, G. (2014). Rabies and rabies virus in wildlife in mainland China, 1990–2013. International Journal of Infectious Diseases, 25, 122-129.
-
-Warrell, M. J., \& Warrell, D. A. (2004). Rabies and other lyssavirus diseases. The Lancet, 363(9413), 959-969.
