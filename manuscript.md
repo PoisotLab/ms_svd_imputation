@@ -8,37 +8,38 @@ environment. Potter emphasizes the fact that the humanity's survival relies on
 the surrounding biological and ecological systems, their proper functioning, and
 can be influenced by their dynamics (Potter, 1970). The current pandemic of
 SARS-CoV-2 is a stark reminder that movement of viruses through novel animal
-hosts, and ultimately to human (zoonotic spillovers; Plowright *et al.*,
-2017) requires that we understand the complexity of our biological surroundings.
-Indeed, the fact that the majority of emerging infectious diseases are caused by
-zoonotic pathogens from wildlife sources (Jones *et al.*, 2008) gives some
-urgency to the task of predicting which viruses can be found in which hosts, so
-as to provide guidance on where and what species to sample and where spillovers
-are likely to happen(Johnson *et al.*, 2020, Albery *et al.*, 2020).
+hosts, and ultimately to human through zoonotic spillovers
+[@Plowright2017PatZoo], requires that we understand the complexity of our
+biological surroundings. Indeed, the fact that the majority of emerging
+infectious diseases are caused by zoonotic pathogens from wildlife sources
+(Jones *et al.*, 2008) gives some urgency to the task of predicting which
+viruses can be found in which hosts, so as to provide guidance on where and what
+species to sample and where spillovers are likely to happen(Johnson *et al.*,
+2020, 2020, @Albery2020PreGlo).).
 
 As seen with SARS-CoV and MERS-CoV epidemics, novel human infections by viruses
 are representing a serious threat to global public health, and being able to
 prevent future viral emergence now appears as a fundamental tool among our
 society. Zoonotic dynamics usually involve three main stages: transmission
 within the animal reservoir, cross-species spillover and transmission to human,
-and finally, transmission among humans (Lloyd-Smith *et al.*, 2009). In the
-past decades, substantial research effort has been put in studying and
-predicting dynamics at the animal-human interface, but tracing back the ultimate
-origin of novel zoonotic viruses remains a major difficulty (Becker *et*
-al.}, 2020). Also, the main strategy adopted so far against infectious diseases
-consists in taking actions after the emergence by increasing the health
-infrastructures and vigilance, as well as developing vaccines or medical
-treatments (Han *et al.*, 2016).  
+and finally, transmission among humans (Lloyd-Smith *et al.*, 2009). In the past
+decades, substantial research effort has been put in studying and predicting
+dynamics at the animal-human interface, but tracing back the ultimate origin of
+novel zoonotic viruses remains a major difficulty [@Becker2020PreWil]. Also, the
+main strategy adopted so far against infectious diseases consists in taking
+actions after the emergence by increasing the health infrastructures and
+vigilance, as well as developing vaccines or medical treatments (Han *et al.*,
+2016).  
 
-As suggested by Han *et el.*, a more efficient approach would be
-anticipatory. Yet an anticipatory approach can be limited by lack of suitable
-data, and as Becker *et al.* (2020) highlighted, by disagreement between
-models. The task of predicting possible host-virus interactions would therefore
-benefit from adding methods that allow imputation, and can produce results that
-are easily added to ensemble models. Here, we explore an approach focusing on
-the first stage of zoonoses dynamics, by using the Singular Value Decomposition
-(SVD) as an imputation method for identifying unobserved host-virus
-interactions, acting as potential intermediates hosts in diseases transmissions.
+As suggested by Han *et el.*, a more efficient approach would be anticipatory.
+Yet an anticipatory approach can be limited by lack of suitable data, and as
+@Becker2020PreWil highlighted, by disagreement between models. The task of
+predicting possible host-virus interactions would therefore benefit from adding
+methods that allow imputation, and can produce results that are easily added to
+ensemble models. Here, we explore an approach focusing on the first stage of
+zoonoses dynamics, by using the Singular Value Decomposition (SVD) as an
+imputation method for identifying unobserved host-virus interactions, acting as
+potential intermediates hosts in diseases transmissions.
 
 # Theory
 
