@@ -61,11 +61,11 @@ then by approximating the original matrix.
 
 \paragraph{Optimal Truncation} of the SVD at rank $r$  of the singular values
 will allow data reduction while keeping enough information to obtain a balance
-between complexity and accuracy within the model. We ran the analyses in
-*Julia* 1.5.1 (Bezanson *et al.* 2017). Truncation at rank $r$ was
-performed by setting values $\mathbf{\Sigma}_{(r+1)..m}$ to 0 (we note the
-resulting vector $^{(r)}\mathbf{\Sigma}$), and the resulting low-rank
-approximation was obtained by
+between complexity and accuracy within the model. We ran the analyses in *Julia*
+1.5.1 [@Bezanson2017JulFre]. Truncation at rank $r$ was performed by setting
+values $\mathbf{\Sigma}_{(r+1)..m}$ to 0 (we note the resulting vector
+$^{(r)}\mathbf{\Sigma}$), and the resulting low-rank approximation was obtained
+by
 
 $$^{(r)}\mathbf{X} =  \mathbf{U} \, ^{(r)}\mathbf{\Sigma \, V}^T$$ {#eq:lowrank}
 
@@ -76,16 +76,16 @@ $$^{(r)}\mathbf{X} =  \mathbf{U} \, ^{(r)}\mathbf{\Sigma \, V}^T$$ {#eq:lowrank}
 For each non-interactions in the dataset (see next section), the model then
 assigns an initial value to it and performs iteratively the SVD at chosen rank,
 until it reaches convergence. During this step, the cells in the matrix that are
-*not* being imputed are kept at the actual value. We capped the maximal
-number of iterations at 50, even though the value of the imputed cells stopped
-changing (defined as a step-wise change lower than $10\times \epsilon$) after
-less than 10 steps in most cases. The initial value we picked for this
-illustration is the connectance of the global host-virus interaction dataset,
-which amounts to the probability that any pair of organisms are found to
-interact (0.03). Other schemes to impute the initial value are possible, for
-example by relying on the relative degree of both species, but this would
-require more guesswork or more assumptions, in addition to possibly being
-sensitive to biases in the preferential sampling of some groups.
+*not* being imputed are kept at the actual value. We capped the maximal number
+of iterations at 50, even though the value of the imputed cells stopped changing
+(defined as a step-wise change lower than $10\times \epsilon$) after less than
+10 steps in most cases. The initial value we picked for this illustration is the
+connectance of the global host-virus interaction dataset, which amounts to the
+probability that any pair of organisms are found to interact (0.03). Other
+schemes to impute the initial value are possible, for example by relying on the
+relative degree of both species, but this would require more guesswork or more
+assumptions, in addition to possibly being sensitive to biases in the
+preferential sampling of some groups.
 
 ## Dataset
 
@@ -93,11 +93,11 @@ The method has been applied to the dataset assembled by the VERENA consortium on
 mammalian viruses
 (`https://github.com/viralemergence/virionette/blob/master/03_interaction_data/virionette.csv).
 This dataset regroups interactions between 710 mammalian hosts and 72 viruses,
-and the aggregation process has been described in Becker *et al.* (2020).
-Specific attention has been paid to betacoronaviruses, a viral genus at high
-risk of spillover, and to their potential bat hosts, a mammalian order known to
-be evolutionary implied in the main viruses zoonotic historical epidemics (Ren
-*et al.*, 2006).
+and the aggregation process has been described in @Becker2020PreWil. Specific
+attention has been paid to betacoronaviruses, a viral genus at high risk of
+spillover, and to their potential bat hosts, a mammalian order known to be
+evolutionary implied in the main viruses zoonotic historical epidemics
+[@Shipley2019BatVir; @Ren2006FulGen].
 
 ## Method validation
 
@@ -105,11 +105,11 @@ For every rank of the SVD, we examined the top 10 non-interactions with the
 highest score (even though the model technically returns a score for all
 non-interactions). Since there have recently been a number of empirical
 investigations regarding host-virus associations, novel bat hosts of
-betacoronaviruses have been described following the assembly of the Becker
-*et al.* (2020) dataset used for the model. Therefore, we were able to
-examine and compare which of these novel identified bat hosts for
-betacoronaviruses have also been recovered by SVD, at all ranks between 1 and 5,
-to confirm the accuracy of this technique.
+betacoronaviruses have been described following the assembly of the
+@Becker2020PreWil dataset used for the model. Therefore, we were able to examine
+and compare which of these novel identified bat hosts for betacoronaviruses have
+also been recovered by SVD, at all ranks between 1 and 5, to confirm the
+accuracy of this technique.
 
 # Results and Discussion
 
@@ -136,20 +136,20 @@ Once those results were obtain, further investigations in the form of literature
 surveys allowed to identify that the interaction between *Pipistrellus* abramus}
 and lyssaviruses has already been noted by @Hu2018LysJap; @Shipley2019BatVir
 reported lyssavirus prevalence in the genus *Pipstrellus*, *Myotis*, and
-*Rhinolophus*. Other confirmed hosts of lyssaviruses are *Sus scrofa* (Satou *et
-al.*, 2004), and *Rattus norvegicus* (*e.g.* Wang *et al.*, 2014). Surveillance
-for novel lyssaviruses infections is of great public health interest, since the
+*Rhinolophus*. Other confirmed hosts of lyssaviruses are *Sus scrofa*
+[@Sato2004GenPhy], and *Rattus norvegicus* [@Wang2014RabRab]. Surveillance for
+novel lyssaviruses infections is of great public health interest, since the
 rabies virus is fatal in all cases, once the onset of clinical symptoms has
 started [@Banyard2017ImpNov]. Although it is recognized that bats are identified
 as reservoir hosts for lyssaviruses, the mechanism allowing the maintenance of
 the virus in those populations is still poorly understood [@Banyard2017ImpNov],
 and these predictions of interactions might serve as guidance in the monitoring
-of new infections. 
+of new infections.
 
 The two non-lyssaviruses associations have been previously reported in the
 literature (*Sus scrofa* and orbivirus by @Belaganahalli2015GenCha; *Capra
 hircus* and the equine encephalomyelitis caused by an alphavirus as early as
-Purcell *et al.*, 1976). This suggests that Singular Value Decomposition of
+@Pursell1972NatOcc). This suggests that Singular Value Decomposition of
 available data on host-virus associations can uncover results that have been
 reported in the primary literature, but not incorporated in the main databases
 used in the field; based on the fact that the majority of the top 10 overall
@@ -220,15 +220,3 @@ value with the SVD imputation is likely to generate predicted interactions that
 are strong candidates for empirical validation.
 
 # References
-
-Ginebreda, A., Sabater-Liesa, L., \& Barceló, D. (2019). Quantification of ecological complexity and resilience from multivariate biological metrics datasets using singular value decomposition entropy. MethodsX, 6, 1668-1676.
-
-Potter, V. R. (1970). Bioethics, the science of survival. Perspectives in biology and medicine, 14(1), 127-153.
-
-Pursell AR, Peckham JC, Cole JR, Stewart WC, Mitchell FE, (1972). Naturally occurring and artificially induced eastern encephalomyelitis in pigs. Journal of the American Veterinary Medical Association, 161(10):1143-1147.
-
-Ren, W., Li, W., Yu, M., Hao, P., Zhang, Y., Zhou, P., ... \& Wang, L. F. (2006). Full-length genome sequences of two SARS-like coronaviruses in horseshoe bats and genetic variation analysis. Journal of General Virology, 87(11), 3355-3359.
-
-Sato, G., Itou, T., Shoji, Y., Miura, Y., Mikami, T., Ito, M., ... \& Ito, F. H. (2004). Genetic and phylogenetic analysis of glycoprotein of rabies virus isolated from several species in Brazil. Journal of Veterinary Medical Science, 66(7), 747-753.
-
-Wang, L., Tang, Q., \& Liang, G. (2014). Rabies and rabies virus in wildlife in mainland China, 1990–2013. International Journal of Infectious Diseases, 25, 122-129.
