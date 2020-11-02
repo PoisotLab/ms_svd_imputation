@@ -28,10 +28,10 @@ dynamics at the animal-human interface, but tracing back the ultimate origin of
 novel zoonotic viruses remains a major difficulty [@Becker2020PreWil]. Also, the
 main strategy adopted so far against infectious diseases consists in taking
 actions after the emergence by increasing the health infrastructures and
-vigilance, as well as developing vaccines or medical treatments (Han *et al.*,
-2016).  
+vigilance, as well as developing vaccines or medical treatments
+[@Han2016FutDir].
 
-As suggested by Han *et el.*, a more efficient approach would be anticipatory.
+As suggested by @Han2016FutDir, a more efficient approach would be anticipatory.
 Yet an anticipatory approach can be limited by lack of suitable data, and as
 @Becker2020PreWil highlighted, by disagreement between models. The task of
 predicting possible host-virus interactions would therefore benefit from adding
@@ -222,19 +222,12 @@ predicted interactions that are strong candidates for empirical validation.
 
 # References
 
-Albery, G. F., Eskew, E. A., Ross, N., \& Olival, K. J. (2020). Predicting the global mammalian viral sharing network using phylogeography. Nature communications, 11(1), 1-9.
 
 Banyard, A. C., \& Fooks, A. R. (2017). The impact of novel lyssavirus discovery. Microbiology Australia, 38(1), 17-21.
 
-Becker, D., Albery, G. F., Sjodin, A. R., Poisot, T., Dallas, T., Eskew, E. A., \& Carlson, C. J. (2020). Predicting wildlife hosts of betacoronaviruses for SARS-CoV-2 sampling prioritization. bioRxiv.
-
 Belaganahalli, M. N., Maan, S., Maan, N. S., Brownlie, J., Tesh, R., Attoui, H., \& Mertens, P. P. (2015). Genetic characterization of the tick-borne orbiviruses. Viruses, 7(5), 2185-2209.
 
-Bezanson, J., Edelman, A., Karpinski, S., \& Shah, V. B. (2017). Julia: A fresh approach to numerical computing. SIAM review, 59(1), 65-98.
-
 Ginebreda, A., Sabater-Liesa, L., \& Barceló, D. (2019). Quantification of ecological complexity and resilience from multivariate biological metrics datasets using singular value decomposition entropy. MethodsX, 6, 1668-1676.
-
-Han, B. A., \& Drake, J. M. (2016). Future directions in analytics for infectious disease intelligence: toward an integrated warning system for emerging pathogens. EMBO reports, 17(6), 785-789.
 
 Hu, S. C., Hsu, C. L., Lee, M. S., Tu, Y. C., Chang, J. C., Wu, C. H., ... \& Tu, W. J. (2018). Lyssavirus in japanese pipistrelle, taiwan. Emerging infectious diseases, 24(4), 782.
 
