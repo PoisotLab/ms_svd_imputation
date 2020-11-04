@@ -23,7 +23,8 @@ end
 
 include("./code/src/functions.jl")
 
-function impute!(output::T1, tmp::T1, data::T2, template::T3, position; r=2, maxiter=50, tolerance=1e-2) where {T1 <: QuantitativeNetwork, T2 <: AbstractEcologicalNetwork, T3 <: ProbabilisticNetwork}
+function impute!(output::T1, tmp::T1, template::T2, position; r=2, maxiter=50, tolerance=1e-2) where {T1 <: QuantitativeNetwork, T2 <: ProbabilisticNetwork}
+    orig = tmp.A[position]
     tmp.A[position] = template.A[position]
     Δ = 1.0
     iter = 1
@@ -34,17 +35,21 @@ function impute!(output::T1, tmp::T1, data::T2, template::T3, position; r=2, max
         tmp.A[position] = A.A[position]
         iter ≥ maxiter && break
     end
-    output.A[position] = tmp.A[position]
-    tmp.A[position] = data.A[position] # RESET!
+    output.A[position] = tmp.A[position] # STORE!
+    tmp.A[position] = orig # RESET!
 end
 
 T = BipartiteQuantitativeNetwork(float.(copy(N.A)), EcologicalNetworks.species_objects(N)...)
 O = copy(T)
 R = EcologicalNetworks.linearfilter(N; α=[0.0, 1.0, 1.0, 1.0])
 
-@time for i in eachindex(R.A)
+for i in eachindex(R.A)
     if !(N.A[i])
-        @info i
-        @time impute!(O, T, N, R, i)
+        impute!(O, T, R, i)
+        @info sum(O.A .- T.A)
     end
 end
+
+predictions = filter(i -> !(N[i.from, i.to]), interactions(O))
+sort!(predictions, by=(x) -> x.strength, rev=true)[1:10]
+plot([x -> x.strength for x in predictions], c=:black, lab="")
