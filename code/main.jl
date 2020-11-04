@@ -8,3 +8,6 @@ begin
     using LinearAlgebra, Statistics
     using Plots
 end
+
+# Read the data
+const virionette = DataFrame(CSV.File("./code/data/virionette.csv"));
