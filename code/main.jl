@@ -46,7 +46,7 @@ R = EcologicalNetworks.linearfilter(N; α=[0.0, 1.0, 1.0, 1.0])
 
 @showprogress for i in eachindex(R.A)
     if !(N.A[i])
-        impute!(O, T, R, i)
+        impute!(O, T, R, i; r=5)
     end
 end
 
