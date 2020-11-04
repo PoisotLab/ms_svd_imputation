@@ -4,8 +4,9 @@ Data source: [virionette](https://github.com/viralemergence/virionette/blob/mast
 
 ## How to run the project
 
-You can execute the project by running this command in the julia terminal
-at the root of the project:
+You can execute the project by running this command in the julia terminal at the
+root of the project:
+
 ```julia
-include("./code/src/run.jl")
+include("./code/main.jl")
 ```
