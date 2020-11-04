@@ -7,6 +7,7 @@ begin
     using EcologicalNetworks
     using LinearAlgebra, Statistics
     using Plots
+    using ProgressMeter
 end
 
 # Read the data
@@ -43,13 +44,18 @@ T = BipartiteQuantitativeNetwork(float.(copy(N.A)), EcologicalNetworks.species_o
 O = copy(T)
 R = EcologicalNetworks.linearfilter(N; α=[0.0, 1.0, 1.0, 1.0])
 
-for i in eachindex(R.A)
+@showprogress for i in eachindex(R.A)
     if !(N.A[i])
         impute!(O, T, R, i)
-        @info sum(O.A .- T.A)
     end
 end
 
 predictions = filter(i -> !(N[i.from, i.to]), interactions(O))
-sort!(predictions, by=(x) -> x.strength, rev=true)[1:10]
-plot([x -> x.strength for x in predictions], c=:black, lab="")
+sort!(predictions, by=(x) -> x.strength, rev=true)
+plot(
+    [x.strength for x in predictions],
+    c=:grey, lab="",
+    fill = (:grey, 0, 0.2),
+    frame = :origin,
+    xlab = "Rank", ylab="Score"
+    )
