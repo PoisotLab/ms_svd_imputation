@@ -32,7 +32,7 @@ function impute!(output::T1, tmp::T1, template::T2, position; r=2, maxiter=50, t
     while Δ > tolerance
         iter += 1
         A = lowrank(tmp; r=r)
-        Δ = abs(A[position] - N[position])
+        Δ = abs(A[position] - tmp[position])
         tmp.A[position] = A.A[position]
         iter ≥ maxiter && break
     end
@@ -44,9 +44,9 @@ T = BipartiteQuantitativeNetwork(float.(copy(N.A)), EcologicalNetworks.species_o
 O = copy(T)
 R = EcologicalNetworks.linearfilter(N; α=[0.0, 1.0, 1.0, 1.0])
 
-@showprogress for i in eachindex(R.A)
+@showprogress for i in eachindex(N.A)
     if !(N.A[i])
-        impute!(O, T, R, i; r=5)
+        impute!(O, T, R, i; r=2)
     end
 end
 
