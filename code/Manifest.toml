@@ -126,6 +126,12 @@ git-tree-sha1 = "13e27a0f1340c9c6494163ee3e93b3eb59e457a3"
 uuid = "f03a62fe-f8ab-5b77-a061-bb599b765229"
 version = "0.3.0"
 
+[[EcologicalNetworksPlots]]
+deps = ["EcologicalNetworks", "Random", "RecipesBase", "Statistics", "StatsBase"]
+git-tree-sha1 = "a06318c3782c6b7e80c788aa85706583a20a0e4d"
+uuid = "9f7a259d-73a7-556d-a7a2-3eb122d3865b"
+version = "0.0.5"
+
 [[FFMPEG]]
 deps = ["FFMPEG_jll", "x264_jll"]
 git-tree-sha1 = "9a73ffdc375be61b0e4516d83d880b265366fe1f"
