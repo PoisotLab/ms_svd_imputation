@@ -54,14 +54,14 @@ end
 plot(I, N, aspectratio=1)
 scatter!(I, N, bipartite=true, nodesize=degree(N))
 
-core3 = collect(keys(filter(p -> p.second >= 3, degree(N))))
+core3 = collect(keys(filter(p -> p.second >= 5, degree(N))))
 Ncore = simplify(N[core3∩species(N; dims=1), core3∩species(N; dims=2)])
 
 plot(I, Ncore)
 scatter!(I, Ncore, nodesize=degree(N), bipartite=true)
 
 K = BipartiteNetwork(zeros(Bool, size(N)), EcologicalNetworks.species_objects(N)...)
-for pre in predictions[1:100]
+for pre in predictions[1:10]
     K[pre.from, pre.to] = true
 end
 simplify!(K)
