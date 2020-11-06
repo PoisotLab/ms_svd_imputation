@@ -79,7 +79,16 @@ of iterations at 50, even though the value of the imputed cells stopped changing
 (defined as a step-wise change lower than $10\times \epsilon$) after less than
 10 steps in most cases. The initial value we picked for this illustration is the
 connectance of the global host-virus interaction dataset, which amounts to the
-probability that any pair of organisms are found to interact (0.03). Other
+probability that any pair of organisms are found to interact (0.03).Yet, this can
+overestimate the importance of viruses with a narrow host range, or
+underestimate the importance of generalist viruses. For this reason, the assignment of the initial value was determined based [@Stock2017LinFil] work on linear filtering. This method provides
+a convenient way to assign weights to various aspects of network structure, and
+has been revealed to provide a good baseline estimate of how likely it is that a
+missing interaction actually exists, based on the structure of the interaction matrix, without the need to have other side information, such as traits or phylogeny. Considering our $m \times n$ data matrix $\mathbf{X}$, the initial value of a missing interaction was fixed to the filtered value $\mathbf{F}_{ij}$ :
+
+$$\mathbf{F}_{i,j} =  \mathbf{\alpha_{1}X_{i,j}+\alpha_{2}\frac{1}{m}\sum\limits_{k=1}^m X_{kj} + \alpha_{3}\frac{1}{n}\sum\limits_{l=1}^n X_{il} + \alpha_{4}\frac{1}{mn}\sum\limits_{k=1}^m\sum\limits_{l=1}^n X_{kl} }$$ {#eq:linearfiltering}
+
+where $\sum\limits_{i=1}^4 \alpha_{i} = 1$ and $\alpha_{i} \in [0,1]$. Using this filter allowed to test different scenarios. Firstly, weight was only given to the average of all interaction values in the matrix for the calculation of the initial value ($\alpha = [0,0,0,1]$), at every chosen rank. Then, weight was given according to the average in which every host ($\alpha = [0,1,0,0]$), virus ($\alpha = [0,0,1,0]$), or both ($\alpha = [0,\frac{1}{2},\frac{1}{2},0]$) are involved in other interactions. Finally, a combination of degree of the individual species and the total average of interactions within the dataset has been used ($\alpha = [0,\frac{1}{3},\frac{1}{3},\frac{1}{3}]$). Other
 schemes to impute the initial value are possible, for example by relying on the
 relative degree of both species, but this would require more guesswork or more
 assumptions, in addition to possibly being sensitive to biases in the
