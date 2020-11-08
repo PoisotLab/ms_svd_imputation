@@ -81,7 +81,7 @@ of iterations at 50, even though the value of the imputed cells stopped changing
 connectance of the global host-virus interaction dataset, which amounts to the
 probability that any pair of organisms are found to interact (0.03).Yet, this can
 overestimate the importance of viruses with a narrow host range, or
-underestimate the importance of generalist viruses. For this reason, the assignment of the initial value was determined based [@Stock2017LinFil] work on linear filtering. This method provides
+underestimate the importance of generalist viruses. For this reason, the assignment of the initial value was then determined based [@Stock2017LinFil] work on linear filtering. This method provides
 a convenient way to assign weights to various aspects of network structure, and
 has been revealed to provide a good baseline estimate of how likely it is that a
 missing interaction actually exists, based on the structure of the interaction matrix, without the need to have other side information, such as traits or phylogeny. Considering our $m \times n$ data matrix $\mathbf{X}$, the initial value of a missing interaction was fixed to the filtered value $\mathbf{F}_{ij}$ :
@@ -189,6 +189,17 @@ sampling.
 | *Rhinolophus sinicus*  | Lyssavirus    |
 | *Myotis ricketti*      | Lyssavirus    |
 | *Rhinolophus affinis*  | Lyssavirus    |
+
+The determination of the initial value to be used for the imputation was then assigned according to the linear filter. The Table 3 presents the number of novel hosts predicted by the model, according to the coefficients used for the filter and to the rank.
+
+| Alpha  | Rank 1 | Rank 2 | Rank 3 | Rank 4 | Rank 5 |
+|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
+|**[0, 0, 0, 1]**|3|3|1|3|4|
+|**[0, \frac{1}{2}, \frac{1}{2}, 1]**|3|3|1|3|3|
+|**[0, \frac{1}{3}, \frac{1}{3}, \frac{1}{3}]**|3|3|1|4|2|
+|**[0, 1, 0, 0]**|3|3|1|3|3|
+|**[0, 0, 1, 0]**|3|3|1|4|3|
+
 
 # Conclusion and future work
 
