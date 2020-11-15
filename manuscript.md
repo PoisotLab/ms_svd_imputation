@@ -199,6 +199,17 @@ The initial value to be used for the imputation was then assigned according to t
 |**[0, 1, 0, 0]**|3|3|1|3|3|
 |**[0, 0, 1, 0]**|3|3|1|4|3|
 
+From the results presented in Table 3, it is possible to see that when using linear filtering for the assignment of initial values, the choice of the \alpha parameters does not impact the accuracy of the predictions for the first three ranks. The fourth and fifth rank then showed a variation per \alpha values. The highest scoring interactions for every combinations was then examined and the variation of its value before and after the imputation has been calculated and is presented in Table 4. This variation appears to not be influenced by the \alpha parameters, and increases the when the rank is higher.
+
+| Alpha  | Rank 1 | Rank 2 | Rank 3 | Rank 4 | Rank 5 |
+|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
+|**[0, 0, 0, 1]**|0.536|0.765|0.700|0.990|1.261|
+|**[0, $\frac{1}{2}$, $\frac{1}{2}$, 0]**|0.536|0.765|0.701|0.990|1.261|
+|**[0, $\frac{1}{3}$, $\frac{1}{3}$, $\frac{1}{3}$]**|0.536|0.765|0.700|0.990|1.261|
+|**[0, 1, 0, 0]**|0.536|0.765|0.701|0.991|1.262|
+|**[0, 0, 1, 0]**|0.536|0.765|0.700|0.990|1.261|
+
+
 
 # Conclusion and future work
 
