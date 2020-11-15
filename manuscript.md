@@ -96,9 +96,8 @@ preferential sampling of some groups.
 
 ## Dataset
 
-The method has been applied to the dataset assembled by the VERENA consortium on
-mammalian viruses
-(`https://github.com/viralemergence/virionette/blob/master/03_interaction_data/virionette.csv).
+The method has been applied to the [dataset](https://github.com/viralemergence/virionette/blob/master/03_interaction_data/virionette.csv) assembled by the VERENA consortium on
+mammalian viruses.
 This dataset regroups interactions between 710 mammalian hosts and 72 viruses,
 and the aggregation process has been described in @Becker2020PreWil. Specific
 attention has been paid to betacoronaviruses, a viral genus at high risk of
