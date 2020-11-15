@@ -77,7 +77,7 @@ until it reaches convergence. During this step, the cells in the matrix that are
 *not* being imputed are kept at the actual value. We capped the maximal number
 of iterations at 50, even though the value of the imputed cells stopped changing
 (defined as a step-wise change lower than $10\times \epsilon$) after less than
-10 steps in most cases. The initial value we picked for this illustration is the
+10 steps in most cases. The initial value that we first picked for this illustration is the
 connectance of the global host-virus interaction dataset, which amounts to the
 probability that any pair of organisms are found to interact (0.03).Yet, this can
 overestimate the importance of viruses with a narrow host range, or
@@ -120,7 +120,7 @@ accuracy of this technique.
 
 # Results and Discussion
 
-First, we report the top 10 likely hosts for betacoronaviruses, which are ranked
+First, we report the top 10 likely hosts for betacoronaviruses, using the connectance of the network has initial values, which are ranked
 by their final value post imputation; larger values should indicate that the
 interactions are more likely to be possible. We report the novel hosts
 (identified post Becker *et al.* 2020, according to
@@ -131,7 +131,7 @@ Becker *et al.* (2020) ensemble model, currently lacking empirical evidence.
 This suggests that rank 2 contains the most information about the processes
 generating the data, and can therefore be used to infer other associations.
 
-Based on this information, we have extracted the 10 highest scoring interactions
+Based on this information, we have also extracted the 10 highest scoring interactions
 across the entire matrix at rank 2 (Table 2). The results demonstrates that
 within the entire dataset, including all mammalian hosts and viruses' genus, 5
 out of the 10 highest scoring interactions are involving bat hosts (presented in
@@ -190,12 +190,12 @@ sampling.
 | *Myotis ricketti*      | Lyssavirus    |
 | *Rhinolophus affinis*  | Lyssavirus    |
 
-The determination of the initial value to be used for the imputation was then assigned according to the linear filter. The Table 3 presents the number of novel hosts predicted by the model, according to the coefficients used for the filter and to the rank.
+The initial value to be used for the imputation was then assigned according to the linear filter, as presented in the method section. The Table 3 presents the number of novel hosts predicted by the model, according to the coefficients used for the filter and to the rank.
 
 | Alpha  | Rank 1 | Rank 2 | Rank 3 | Rank 4 | Rank 5 |
 |:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
 |**[0, 0, 0, 1]**|3|3|1|3|4|
-|**[0, $\frac{1}{2}$, $\frac{1}{2}$, 1]**|3|3|1|3|3|
+|**[0, $\frac{1}{2}$, $\frac{1}{2}$, 0]**|3|3|1|3|3|
 |**[0, $\frac{1}{3}$, $\frac{1}{3}$, $\frac{1}{3}$]**|3|3|1|4|2|
 |**[0, 1, 0, 0]**|3|3|1|3|3|
 |**[0, 0, 1, 0]**|3|3|1|4|3|
@@ -225,15 +225,11 @@ pairs.
 
 Future work on the use of SVD for virus host associations will have to adress
 the question of the initial value used in the imputation process. As of now, we
-relied on the average number of interactions in the matrix; yet this can
-overestimate the importance of viruses with a narrow host range, or
-underestimate the importance of generalist viruses. For this reason, we are
-confident that the performance of the approach can further be improved by
-fine-tuning the initial value used for imputation. A promising avenue in this
-regard is to rely on @Stock2017LinFil work on linear filtering -- this provides
-a convenient way to assign weights to various aspects of network structure, and
+relied on the average number of interactions in the matrix, and on weight allocation for diffrent various aspects of the network structure based on @Stock2017LinFil work on linear filtering. This
 has been revealed to provide a good baseline estimate of how likely it is that a
-missing interaction actually exists. Combining an accurate model for the initial
+missing interaction actually exists. For this reason, we are
+confident that the performance of the approach can further be improved by
+fine-tuning the choice of the initial value used for imputation.  Combining an accurate model for the initial
 value with the SVD imputation is likely to generate predicted interactions that
 are strong candidates for empirical validation.
 
