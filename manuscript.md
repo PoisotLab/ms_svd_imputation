@@ -199,7 +199,7 @@ The initial value to be used for the imputation was then assigned according to t
 |**[0, 1, 0, 0]**|3|3|1|3|3|
 |**[0, 0, 1, 0]**|3|3|1|4|3|
 
-From the results presented in Table 3, it is possible to see that when using linear filtering for the assignment of initial values, the choice of the $\alpha$ parameters does not impact the accuracy of the predictions for the first three ranks. The fourth and fifth rank then showed a variation per $\alpha$ values. The highest scoring interactions for every combinations was then examined and the variation of its value before and after the imputation has been calculated. This variation appeared to not be influenced by the $\alpha$ parameters, but only by the rank used. The variation calculated increased as the rank got higher. The results obtained are prensented in Table 4. 
+From the results presented in Table 3, it is possible to see that when using linear filtering for the assignment of initial values, the choice of the $\alpha$ parameters does not impact the accuracy of the predictions for the first three rank. The fourth and fifth rank then showed a variation per $\alpha$ values. The highest scoring interactions for every combinations was then examined and the variation of its value before and after the imputation has been calculated. This variation appeared to not be influenced by the $\alpha$ parameters, but only by the rank used. The variation calculated increased as the rank got higher. The results obtained are presented in Table 4. 
 
 | Rank 1 | Rank 2 | Rank 3 | Rank 4 | Rank 5 |
 |:--------:|:--------:|:--------:|:--------:|:--------:|
@@ -229,8 +229,8 @@ pairs.
 
 Future work on the use of SVD for virus host associations will have to adress
 the question of the initial value used in the imputation process. As of now, we
-relied on the average number of interactions in the matrix, and on weight allocation for diffrent various aspects of the network structure based on @Stock2017LinFil work on linear filtering. This
-has been revealed to provide a good baseline estimate of how likely it is that a
+relied on the average number of interactions in the matrix, and on weighted allocations for different aspects of the network structure based on @Stock2017LinFil work on linear filtering. This technic
+has been revealing to provide a good baseline estimate of how likely it is that a
 missing interaction actually exists. For this reason, we are
 confident that the performance of the approach can further be improved by
 fine-tuning the choice of the initial value used for imputation.  Combining an accurate model for the initial
