@@ -130,7 +130,7 @@ Becker *et al.* (2020) ensemble model, currently lacking empirical evidence.
 This suggests that rank 2 contains the most information about the processes
 generating the data, and can therefore be used to infer other associations.
 
-Table 1: Top 10 likely hosts for betacoronaviruses using the connectance of the network as initial values
+[Table 1: Top 10 likely hosts for betacoronaviruses using the connectance of the network as initial values]
 
 | Rank 1                   | Rank 2                    |
 |--------------------------|---------------------------|
@@ -153,7 +153,7 @@ out of the 10 highest scoring interactions are involving bat hosts (presented in
 This genus includes the rabies virus (RABV), and other neurotropic
 rabies-related viruses [@Warrell2004RabOth].
 
-Table 2: Top 10 likely missing interactions across the entire dataset using the connectance of the network as initial values
+[Table 2: Top 10 likely missing interactions across the entire dataset using the connectance of the network as initial values]
 
 | Hosts species          | Viruses genus |
 |------------------------|---------------|
@@ -196,7 +196,7 @@ sampling.
 
 The initial value to be used for the imputation was then assigned according to the linear filter, as presented in the method section. The Table 3 presents the number of novel hosts predicted by the model, according to the coefficients used for the filter and to the rank.
 
-Table 3: Number of novel hosts for betacoronaviruses correctly predicted by the model using linear filtering for the attribution of initial values
+[Table 3: Number of novel hosts for betacoronaviruses correctly predicted by the model using linear filtering for the attribution of initial values]
 
 | Alpha  | Rank 1 | Rank 2 | Rank 3 | Rank 4 | Rank 5 |
 |:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
@@ -208,7 +208,7 @@ Table 3: Number of novel hosts for betacoronaviruses correctly predicted by the 
 
 From the results presented in Table 3, it is possible to see that when using linear filtering for the assignment of initial values, the choice of the $\alpha$ parameters does not impact the accuracy of the predictions for the first three rank. The fourth and fifth rank then showed a variation per $\alpha$ values. The highest scoring interactions for every combinations was then examined and the variation of its value before and after the imputation has been calculated. This variation appeared to not be influenced by the $\alpha$ parameters, but only by the rank used. The variation calculated increased as the rank got higher. The results obtained are presented in Table 4. 
 
-Table 4: Variation of the value pre and post imputation for the highest scoring interaction at every rank
+[Table 4: Variation of the value pre and post imputation for the highest scoring interaction at every rank]
 
 | Rank 1 | Rank 2 | Rank 3 | Rank 4 | Rank 5 |
 |:--------:|:--------:|:--------:|:--------:|:--------:|
