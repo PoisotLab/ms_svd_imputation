@@ -130,8 +130,7 @@ Becker *et al.* (2020) ensemble model, currently lacking empirical evidence.
 This suggests that rank 2 contains the most information about the processes
 generating the data, and can therefore be used to infer other associations.
 
-\caption{Top 10 likely hosts for betacoronaviruses using the connectance of the network as initial values}
-
+Table 1: Top 10 likely hosts for betacoronaviruses using the connectance of the network as initial values
 | Rank 1                   | Rank 2                    |
 |--------------------------|---------------------------|
 | **Artibeus jamaicensis** | **Hipposideros pomona**   |
@@ -153,6 +152,7 @@ out of the 10 highest scoring interactions are involving bat hosts (presented in
 This genus includes the rabies virus (RABV), and other neurotropic
 rabies-related viruses [@Warrell2004RabOth].
 
+Table 2: Top 10 likely missing interactions across the entire dataset using the connectance of the network as initial values
 | Hosts species          | Viruses genus |
 |------------------------|---------------|
 | Sus scrofa             | Lyssavirus    |
@@ -165,7 +165,6 @@ rabies-related viruses [@Warrell2004RabOth].
 | *Rhinolophus sinicus*  | Lyssavirus    |
 | *Myotis ricketti*      | Lyssavirus    |
 | *Rhinolophus affinis*  | Lyssavirus    |
-[Table 2: Top 10 likely missing interactions across the entire dataset using the connectance of the network as initial values] 
 
 
 Once those results were obtain, further investigations in the form of literature
@@ -195,6 +194,7 @@ sampling.
 
 The initial value to be used for the imputation was then assigned according to the linear filter, as presented in the method section. The Table 3 presents the number of novel hosts predicted by the model, according to the coefficients used for the filter and to the rank.
 
+Table 3: Number of novel hosts for betacoronaviruses correctly predicted by the model using linear filtering for the attribution of initial values
 | Alpha  | Rank 1 | Rank 2 | Rank 3 | Rank 4 | Rank 5 |
 |:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
 |**[0, 0, 0, 1]**|3|3|1|3|4|
@@ -202,15 +202,13 @@ The initial value to be used for the imputation was then assigned according to t
 |**[0, $\frac{1}{3}$, $\frac{1}{3}$, $\frac{1}{3}$]**|3|3|1|4|2|
 |**[0, 1, 0, 0]**|3|3|1|3|3|
 |**[0, 0, 1, 0]**|3|3|1|4|3|
-[Table 3: Number of novel hosts for betacoronaviruses correctly predicted by the model using linear filtering for the attribution of initial values]
 
 From the results presented in Table 3, it is possible to see that when using linear filtering for the assignment of initial values, the choice of the $\alpha$ parameters does not impact the accuracy of the predictions for the first three rank. The fourth and fifth rank then showed a variation per $\alpha$ values. The highest scoring interactions for every combinations was then examined and the variation of its value before and after the imputation has been calculated. This variation appeared to not be influenced by the $\alpha$ parameters, but only by the rank used. The variation calculated increased as the rank got higher. The results obtained are presented in Table 4. 
 
+Table 4: Variation of the value pre and post imputation for the highest scoring interaction at every rank
 | Rank 1 | Rank 2 | Rank 3 | Rank 4 | Rank 5 |
 |:--------:|:--------:|:--------:|:--------:|:--------:|
 |0.536|0.765|0.700|0.990|1.261|
-[Table 4: Variation of the value pre and post imputation for the highest scoring interaction at every rank] 
-
 
 # Conclusion and future work
 
