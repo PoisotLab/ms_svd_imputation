@@ -84,11 +84,11 @@ overestimate the importance of viruses with a narrow host range, or
 underestimate the importance of generalist viruses. For this reason, the assignment of the initial value was then determined based [@Stock2017LinFil] work on linear filtering. This method provides
 a convenient way to assign weights to various aspects of network structure, and
 has been revealed to provide a good baseline estimate of how likely it is that a
-missing interaction actually exists, based on the structure of the interaction matrix, without the need to have other side information, such as traits or phylogeny. Considering our $m \times n$ data matrix $\mathbf{X}$, the initial value of a missing interaction was fixed to the filtered value $\mathbf{F}_{ij}$ :
+missing interaction actually exists, based on the structure of the interaction matrix, without the need of having other side information, such as traits or phylogeny. Considering our $m \times n$ data matrix $\mathbf{X}$, the initial value of a missing interaction was fixed to the filtered value $\mathbf{F}_{ij}$ :
 
 $$\mathbf{F}_{i,j} =  \mathbf{\alpha_{1}X_{i,j}+\alpha_{2}\frac{1}{m}\sum\limits_{k=1}^m X_{kj} + \alpha_{3}\frac{1}{n}\sum\limits_{l=1}^n X_{il} + \alpha_{4}\frac{1}{mn}\sum\limits_{k=1}^m\sum\limits_{l=1}^n X_{kl} }$$ {#eq:linearfiltering}
 
-where $\sum\limits_{i=1}^4 \alpha_{i} = 1$ and $\alpha_{i} \in [0,1]$. Using this filter allowed to test different scenarios. Firstly, weight was only given to the average of all interaction values in the matrix for the calculation of the initial value ($\alpha = [0,0,0,1]$), at every chosen rank. Then, weight was given according to the average in which every host ($\alpha = [0,1,0,0]$), virus ($\alpha = [0,0,1,0]$), or both ($\alpha = [0,\frac{1}{2},\frac{1}{2},0]$) are involved in other interactions. Finally, a combination of degree of the individual species and the total average of interactions within the dataset has been used ($\alpha = [0,\frac{1}{3},\frac{1}{3},\frac{1}{3}]$). Other
+where $\sum\limits_{i=1}^4 \alpha_{i} = 1$ and $\alpha_{i} \in [0,1]$. Using this filter allowed to test different scenarios. Firstly, weight was only given to the average of all interaction values in the matrix for the calculation of the initial value ($\alpha = [0,0,0,1]$), for every chosen rank. Then, weight was given according to the average in which every host ($\alpha = [0,1,0,0]$), virus ($\alpha = [0,0,1,0]$), or both ($\alpha = [0,\frac{1}{2},\frac{1}{2},0]$) are involved in other interactions. Finally, a combination of the individual species' degrees and the total average of interactions within the dataset has been used ($\alpha = [0,\frac{1}{3},\frac{1}{3},\frac{1}{3}]$). Other
 schemes to impute the initial value are possible, for example by relying on the
 relative degree of both species, but this would require more guesswork or more
 assumptions, in addition to possibly being sensitive to biases in the
@@ -119,7 +119,7 @@ accuracy of this technique.
 
 # Results and Discussion
 
-First, we report the top 10 likely hosts for betacoronaviruses, using the connectance of the network has initial values, which are ranked
+First, we report the top 10 likely hosts for betacoronaviruses, using the connectance of the network as initial values, which are ranked
 by their final value post imputation; larger values should indicate that the
 interactions are more likely to be possible. We report the novel hosts
 (identified post Becker *et al.* 2020, according to
@@ -130,6 +130,20 @@ Becker *et al.* (2020) ensemble model, currently lacking empirical evidence.
 This suggests that rank 2 contains the most information about the processes
 generating the data, and can therefore be used to infer other associations.
 
+| Rank 1                   | Rank 2                    |
+|--------------------------|---------------------------|
+| **Artibeus jamaicensis** | **Hipposideros pomona**   |
+| **Scotophilus kuhlii**   | **Scotophilus kuhlii**    |
+| Molossus rufus           | **Artibeus jamaicensis**  |
+| Sturnira lilium          | Carollia brevicauda       |
+| **Desmodus rotundus**    | Chaerephon pumilus        |
+| Glossophaga soricina     | Molossus rufus            |
+| Eptesicus fuscus         | Glossophaga soricina      |
+| Tadarida brasiliensis    | **Desmodus rotundus**     |
+| Myotis nigricans         | Sturnira lilium           |
+| Myotis lucifugus         | **Hipposideros larvatus** |
+[Table 1: Top 10 likely hosts for betacoronaviruses using the connectance of the network as initial values]
+
 Based on this information, we have also extracted the 10 highest scoring interactions
 across the entire matrix at rank 2 (Table 2). The results demonstrates that
 within the entire dataset, including all mammalian hosts and viruses' genus, 5
@@ -137,6 +151,21 @@ out of the 10 highest scoring interactions are involving bat hosts (presented in
 *italic*), and 8 out of the 10 interactions are involving the lyssavirus genus.
 This genus includes the rabies virus (RABV), and other neurotropic
 rabies-related viruses [@Warrell2004RabOth].
+
+| Hosts species          | Viruses genus |
+|------------------------|---------------|
+| Sus scrofa             | Lyssavirus    |
+| *Hipposideros armiger* | Lyssavirus    |
+| Rattus norvegicus      | Lyssavirus    |
+| Myodes glareolus       | Lyssavirus    |
+| *Pipistrellus abramus* | Lyssavirus    |
+| Sus scrofa             | Orbivirus     |
+| Capra hircus           | Alphavirus    |
+| *Rhinolophus sinicus*  | Lyssavirus    |
+| *Myotis ricketti*      | Lyssavirus    |
+| *Rhinolophus affinis*  | Lyssavirus    |
+[Table 2: Top 10 likely missing interactions across the entire dataset using the connectance of the network as initial values] 
+
 
 Once those results were obtain, further investigations in the form of literature
 surveys allowed to identify that the interaction between *Pipistrellus* abramus}
@@ -163,32 +192,6 @@ associations were able to be validated from the literature, we suggest that
 interactions that have no empirical evidence could be targets for additional
 sampling.
 
-| Rank 1                   | Rank 2                    |
-|--------------------------|---------------------------|
-| **Artibeus jamaicensis** | **Hipposideros pomona**   |
-| **Scotophilus kuhlii**   | **Scotophilus kuhlii**    |
-| Molossus rufus           | **Artibeus jamaicensis**  |
-| Sturnira lilium          | Carollia brevicauda       |
-| **Desmodus rotundus**    | Chaerephon pumilus        |
-| Glossophaga soricina     | Molossus rufus            |
-| Eptesicus fuscus         | Glossophaga soricina      |
-| Tadarida brasiliensis    | **Desmodus rotundus**     |
-| Myotis nigricans         | Sturnira lilium           |
-| Myotis lucifugus         | **Hipposideros larvatus** |
-
-| Hosts species          | Viruses genus |
-|------------------------|---------------|
-| Sus scrofa             | Lyssavirus    |
-| *Hipposideros armiger* | Lyssavirus    |
-| Rattus norvegicus      | Lyssavirus    |
-| Myodes glareolus       | Lyssavirus    |
-| *Pipistrellus abramus* | Lyssavirus    |
-| Sus scrofa             | Orbivirus     |
-| Capra hircus           | Alphavirus    |
-| *Rhinolophus sinicus*  | Lyssavirus    |
-| *Myotis ricketti*      | Lyssavirus    |
-| *Rhinolophus affinis*  | Lyssavirus    |
-
 The initial value to be used for the imputation was then assigned according to the linear filter, as presented in the method section. The Table 3 presents the number of novel hosts predicted by the model, according to the coefficients used for the filter and to the rank.
 
 | Alpha  | Rank 1 | Rank 2 | Rank 3 | Rank 4 | Rank 5 |
@@ -198,12 +201,15 @@ The initial value to be used for the imputation was then assigned according to t
 |**[0, $\frac{1}{3}$, $\frac{1}{3}$, $\frac{1}{3}$]**|3|3|1|4|2|
 |**[0, 1, 0, 0]**|3|3|1|3|3|
 |**[0, 0, 1, 0]**|3|3|1|4|3|
+[Table 3: Number of novel hosts for betacoronaviruses correctly predicted by the model using linear filtering for the attribution of initial values]
 
 From the results presented in Table 3, it is possible to see that when using linear filtering for the assignment of initial values, the choice of the $\alpha$ parameters does not impact the accuracy of the predictions for the first three rank. The fourth and fifth rank then showed a variation per $\alpha$ values. The highest scoring interactions for every combinations was then examined and the variation of its value before and after the imputation has been calculated. This variation appeared to not be influenced by the $\alpha$ parameters, but only by the rank used. The variation calculated increased as the rank got higher. The results obtained are presented in Table 4. 
 
 | Rank 1 | Rank 2 | Rank 3 | Rank 4 | Rank 5 |
 |:--------:|:--------:|:--------:|:--------:|:--------:|
 |0.536|0.765|0.700|0.990|1.261|
+[Table 4: Variation of the value pre and post imputation for the highest scoring interaction at every rank] 
+
 
 # Conclusion and future work
 
@@ -228,12 +234,12 @@ dataset) is a strong indication that SVD is able to uncover likely host-virus
 pairs.
 
 Future work on the use of SVD for virus host associations will have to adress
-the question of the initial value used in the imputation process. As of now, we
-relied on the average number of interactions in the matrix, and on weighted allocations for different aspects of the network structure based on @Stock2017LinFil work on linear filtering. This technic
+the question of the initial value used in the imputation process in further details. As of now, we
+relied on the average number of interactions in the matrix, and on weighted allocations for different aspects of the network structure, based on @Stock2017LinFil work on linear filtering. Those technic
 has been revealing to provide a good baseline estimate of how likely it is that a
-missing interaction actually exists. For this reason, we are
+missing interaction could actually exists. For this reason, we are
 confident that the performance of the approach can further be improved by
-fine-tuning the choice of the initial value used for imputation.  Combining an accurate model for the initial
+fine-tuning the choice of the initial value used for imputation, according to the dataset used. Combining an accurate model for the initial
 value with the SVD imputation is likely to generate predicted interactions that
 are strong candidates for empirical validation.
 
