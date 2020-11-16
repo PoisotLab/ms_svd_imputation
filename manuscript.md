@@ -96,7 +96,7 @@ preferential sampling of some groups.
 
 ## Dataset
 
-The method has been applied to the [dataset](https://github.com/viralemergence/virionette/blob/master/03_interaction_data/virionette.csv) assembled by the VERENA consortium on
+The previously showed method has been applied to the [dataset](https://github.com/viralemergence/virionette/blob/master/03_interaction_data/virionette.csv) assembled by the VERENA consortium on
 mammalian viruses.
 This dataset regroups interactions between 710 mammalian hosts and 72 viruses,
 and the aggregation process has been described in @Becker2020PreWil. Specific
@@ -206,13 +206,15 @@ The initial value to be used for the imputation was then assigned according to t
 |**[0, 1, 0, 0]**|3|3|1|3|3|
 |**[0, 0, 1, 0]**|3|3|1|4|3|
 
-From the results presented in Table 3, it is possible to see that when using linear filtering for the assignment of initial values, the choice of the $\alpha$ parameters does not impact the accuracy of the predictions for the first three rank. The fourth and fifth rank then showed a variation per $\alpha$ values. The highest scoring interactions for every combinations was then examined and the variation of its value before and after the imputation has been calculated. This variation appeared to not be influenced by the $\alpha$ parameters, but only by the rank used. The variation calculated increased as the rank got higher. The results obtained are presented in Table 4. 
+From the results presented in Table 3, it is possible to see that when using linear filtering for the assignment of initial values, the choice of the $\alpha$ parameters does not impact the accuracy of the predictions for the first three rank. The fourth and fifth rank then showed a variation per $\alpha$ values. The highest scoring interactions for every combinations was then examined and the variation of its value before and after the imputation has been calculated, and the results obtained are presented in Table 4. 
 
 [Table 4: Variation of the value pre and post imputation for the highest scoring interaction at every rank]
 
 | Rank 1 | Rank 2 | Rank 3 | Rank 4 | Rank 5 |
 |:--------:|:--------:|:--------:|:--------:|:--------:|
 |0.536|0.765|0.700|0.990|1.261|
+
+This variation was not influenced by the $\alpha$ parameters, but only by the rank used. The variation calculated increased as the rank got higher.
 
 # Conclusion and future work
 
