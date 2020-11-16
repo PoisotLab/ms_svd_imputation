@@ -130,6 +130,7 @@ Becker *et al.* (2020) ensemble model, currently lacking empirical evidence.
 This suggests that rank 2 contains the most information about the processes
 generating the data, and can therefore be used to infer other associations.
 
+Table (\#tab:tab-beta): Top 10 likely hosts for betacoronaviruses using the connectance of the network as initial values
 | Rank 1                   | Rank 2                    |
 |--------------------------|---------------------------|
 | **Artibeus jamaicensis** | **Hipposideros pomona**   |
@@ -142,7 +143,6 @@ generating the data, and can therefore be used to infer other associations.
 | Tadarida brasiliensis    | **Desmodus rotundus**     |
 | Myotis nigricans         | Sturnira lilium           |
 | Myotis lucifugus         | **Hipposideros larvatus** |
-[Table 1: Top 10 likely hosts for betacoronaviruses using the connectance of the network as initial values]
 
 Based on this information, we have also extracted the 10 highest scoring interactions
 across the entire matrix at rank 2 (Table 2). The results demonstrates that
