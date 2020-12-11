@@ -45,8 +45,9 @@
   ],
   "description": "The current pandemic of SARS-CoV-2 is a stark reminder that we need a better understanding of the movements of viruses through novel animal hosts, and ultimately to humans. The task of predicting which virus can infect which host, and where spillovers are likely to happen, still remains difficult. Typically, anticipatory approaches can be limited by numerous difficulties (lack of suitable data, disagreement between models, etc.), and would therefore benefit from adding methods allowing imputation and producing results that could easily be added to ensemble models. In this study, we explore the potential of using the Singular Value Decomposition (SVD) technique as an imputation method to predict host-virus interactions.",
   "keywords": [
-    "pandoc",
-    "pandoc-crossref",
-    "github actions"
+    "viral ecology",
+    "imputation",
+    "singular value decomposition",
+    "ecological network inference
   ]
 }
