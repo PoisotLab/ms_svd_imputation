@@ -1,19 +1,19 @@
 %!TEX TS-program = xelatex
-\documentclass[11pt]{article}
+\documentclass[10pt,oneside]{article}
 
 ${ _common() }
 ${ _pandoc() }
-
-\geometry{verbose,letterpaper,tmargin=2.2cm,bmargin=2.2cm,lmargin=2.2cm,rmargin=5cm}
-
-\pagestyle{plain}
+${ _preprint() }
 
 \begin{document}
+\thispagestyle{firstpage}
 
-{\LARGE\bfseries ${ title }}
+\newcommand{\colorRule}[3][black]{\textcolor[HTML]{#1}{\rule{#2}{#3}}}
 
-\vskip 2em
+\noindent {\huge \textbf{\textsf{${ title }}}}
 
+\medskip
+\begin{flushleft}
 {\small
 ${ authors:_list_authors()[, ] }
 \vskip 1em
@@ -22,15 +22,26 @@ ${ for(authors) }
 ${ if(it.email) }
 \textsuperscript{*}\,\,\texttt{${ it.email }}
 ${ endif }
-${ endfor }
-}
+${ endfor }}
+\end{flushleft}
 
 \vskip 2em
+\makebox[0pt][l]{\colorRule[CCCCCC]{2.0\textwidth}{0.5pt}}
+\vskip 2em
+\noindent
+
+${ if(keywords) }\marginpar{\vskip 1em\flushright
+{\small{\bfseries Keywords}:\par
+${ for(keywords) }${ it }\\${ endfor }}
+}
+$endif$
 
 ${ if(description) }
-\textbf{Abstract:}\,${ description }
+\textbf{Abstract}:\,${ description }
 ${ endif }
 
+\vskip 2em
+\makebox[0pt][l]{\colorRule[CCCCCC]{2.0\textwidth}{0.5pt}}
 \vskip 2em
 
 ${ body }
