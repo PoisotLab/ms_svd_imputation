@@ -37,14 +37,14 @@ plot(
 savefig("../figures/lowrank_illustration.png")
 
 @showprogress for i in eachindex(N.edges)
-    if !(N.edges[i])
+    if !(N[i])
         impute!(O, T, R, i; r=2)
     end
 end
 
 predictions = filter(i -> !(N[i.from, i.to]), interactions(O))
 sort!(predictions, by=(x) -> x.strength, rev=true)
-predictions = filter(x -> x.strength > R[x.from, x.to], predictions)
+filter!(x -> x.strength > R[x.from, x.to], predictions)
 plot(
     [x.strength for x in predictions],
     c=:grey, lab="",
