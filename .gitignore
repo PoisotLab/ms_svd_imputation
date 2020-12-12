@@ -3,3 +3,5 @@ dist/
 *synctex*
 references.json
 affiliations.json
+Manifest.toml
+.vscode/*
