@@ -135,7 +135,8 @@ impute the initial value are possible, for example by relying on the relative
 degree of both species, but this would require more guesswork or more
 assumptions, in addition to possibly being sensitive to biases in the
 preferential sampling of some groups.
-## Method validation
+
+## Model validation
 
 For every rank of the SVD, we examined the top 10 non-interactions with the
 highest score (even though the model technically returns a score for all
@@ -258,8 +259,6 @@ calculated, and the results obtained are presented in Table 4.
 This variation was not influenced by the $\alpha$ parameters, but only by the
 rank used. The variation calculated increased as the rank got higher.
 
-# Conclusion and future work
-
 Being able to identify intermediate animal hosts for potential zoonotic
 pathogens is an important step in the fight against potential threats to global
 public health. Using SVD as an imputation method to predict those interactions
@@ -284,13 +283,14 @@ Future work on the use of SVD for virus host associations will have to adress
 the question of the initial value used in the imputation process in further
 details. As of now, we relied on the average number of interactions in the
 matrix, and on weighted allocations for different aspects of the network
-structure, based on @Stock2017LinFil work on linear filtering. Those technic has
-been revealing to provide a good baseline estimate of how likely it is that a
-missing interaction could actually exists. For this reason, we are confident
-that the performance of the approach can further be improved by fine-tuning the
-choice of the initial value used for imputation, according to the dataset used.
-Combining an accurate model for the initial value with the SVD imputation is
-likely to generate predicted interactions that are strong candidates for
-empirical validation.
+structure, based on @Stock2017LinFil work on linear filtering. This method can
+provide a good baseline estimate of how likely it is that a missing interaction
+could actually exist (and in fact was developed for this purpose). For this
+reason, we are confident that the performance of the approach can further be
+improved by fine-tuning the choice of the initial value used for imputation,
+according to the dataset used, or by relying on ensemble models that would
+aggregate the output of the best recommenders. Combining an accurate model for
+the initial value with the SVD imputation is likely to generate predicted
+interactions that are strong candidates for empirical validation.
 
 # References
