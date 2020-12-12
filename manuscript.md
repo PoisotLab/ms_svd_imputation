@@ -96,14 +96,14 @@ preferential sampling of some groups.
 
 ## Dataset
 
-The previously showed method has been applied to the [dataset](https://github.com/viralemergence/virionette/blob/master/03_interaction_data/virionette.csv) assembled by the VERENA consortium on
-mammalian viruses.
-This dataset regroups interactions between 710 mammalian hosts and 72 viruses,
-and the aggregation process has been described in @Becker2020PreWil. Specific
-attention has been paid to betacoronaviruses, a viral genus at high risk of
-spillover, and to their potential bat hosts, a mammalian order known to be
-evolutionary implied in the main viruses zoonotic historical epidemics
-[@Shipley2019BatVir; @Ren2006FulGen].
+The previously showed method has been applied to the
+[dataset](https://github.com/viralemergence/virionette/blob/master/03_interaction_data/virionette.csv)
+assembled by the VERENA consortium on mammalian viruses. This dataset regroups
+interactions between 710 mammalian hosts and 72 viruses, and the aggregation
+process has been described in @Becker2020PreWil. Specific attention has been
+paid to betacoronaviruses, a viral genus at high risk of spillover, and to their
+potential bat hosts, a mammalian order known to be evolutionary implied in the
+main viruses zoonotic historical epidemics [@Shipley2019BatVir; @Ren2006FulGen].
 
 ## Method validation
 
@@ -119,18 +119,17 @@ accuracy of this technique.
 
 # Results and Discussion
 
-First, we report the top 10 likely hosts for betacoronaviruses, using the connectance of the network as initial values, which are ranked
-by their final value post imputation; larger values should indicate that the
-interactions are more likely to be possible. We report the novel hosts
-(identified post Becker *et al.* 2020, according to
-`https://www.viralemergence.org/betacov`). These results are presented in Table
-1 - the novel hosts are presented in **bold**. Using a rank 2 approximation of
-the dataset, we have 5 novel hosts, and 4 identified as "suspected" hosts by the
-Becker *et al.* (2020) ensemble model, currently lacking empirical evidence.
-This suggests that rank 2 contains the most information about the processes
-generating the data, and can therefore be used to infer other associations.
-
-[Table 1: Top 10 likely hosts for betacoronaviruses using the connectance of the network as initial values]
+First, we report the top 10 likely hosts for betacoronaviruses, using the
+connectance of the network as initial values, which are ranked by their final
+value post imputation; larger values should indicate that the interactions are
+more likely to be possible. We report the novel hosts (identified post
+@Becker2020PreWil, according to `https://www.viralemergence.org/betacov`). These
+results are presented in Table 1 - the novel hosts are presented in **bold**.
+Using a rank 2 approximation of the dataset, we have 5 novel hosts, and 4
+identified as "suspected" hosts by the @Becker2020PreWil ensemble model,
+currently lacking empirical evidence. This suggests that rank 2 contains the
+most information about the processes generating the data, and can therefore be
+used to infer other associations.
 
 | Rank 1                   | Rank 2                    |
 |--------------------------|---------------------------|
@@ -144,6 +143,8 @@ generating the data, and can therefore be used to infer other associations.
 | Tadarida brasiliensis    | **Desmodus rotundus**     |
 | Myotis nigricans         | Sturnira lilium           |
 | Myotis lucifugus         | **Hipposideros larvatus** |
+
+Table 1: Top 10 likely hosts for betacoronaviruses using the connectance of the network as initial values {#tbl:top10}
 
 Based on this information, we have also extracted the 10 highest scoring interactions
 across the entire matrix at rank 2 (Table 2). The results demonstrates that

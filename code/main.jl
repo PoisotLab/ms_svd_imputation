@@ -1,15 +1,10 @@
-import Pkg
-Pkg.activate("code")
-
-begin
-    import CSV
-    using DataFrames
-    using EcologicalNetworks
-    using LinearAlgebra, Statistics
-    using Plots
-    using ProgressMeter
-    using EcologicalNetworksPlots
-end
+import CSV
+using DataFrames
+using EcologicalNetworks
+using LinearAlgebra, Statistics
+using Plots
+using ProgressMeter
+using EcologicalNetworksPlots
 
 # Read the data
 const virionette = DataFrame(CSV.File("./code/data/virionette.csv"));
@@ -23,7 +18,7 @@ for record in eachrow(virionette)
     N[record.virus_genus, record.host_species] = true
 end
 
-include("./code/src/functions.jl")
+include("./src/functions.jl")
 
 T = BipartiteQuantitativeNetwork(float.(copy(N.A)), EcologicalNetworks.species_objects(N)...)
 O = copy(T)
