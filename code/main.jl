@@ -1,31 +1,43 @@
 import CSV
 using DataFrames
 using EcologicalNetworks
-using LinearAlgebra, Statistics
+using LinearAlgebra, Statistics, SparseArrays
 using Plots
 using ProgressMeter
 using EcologicalNetworksPlots
 
 # Read the data
-const virionette = DataFrame(CSV.File("./code/data/virionette.csv"));
+const virionette = DataFrame(CSV.File("./data/virionette.csv"));
 
 # Make a network
-hosts, viruses = unique(virionette.host_species), unique(virionette.virus_genus)
-A = zeros(Bool, (length(viruses), length(hosts)))
-N = BipartiteNetwork(A, viruses, hosts)
-
-for record in eachrow(virionette)
-    N[record.virus_genus, record.host_species] = true
-end
+hosts, viruses = sort(unique(virionette.host_species)), sort(unique(virionette.virus_genus))
+i = indexin(virionette.virus_genus, viruses)
+j = indexin(virionette.host_species, hosts)
+V = fill(true, length(i))
+N = BipartiteNetwork{Bool,String}(sparse(i,j,V), viruses, hosts)
 
 include("./src/functions.jl")
 
-T = BipartiteQuantitativeNetwork(float.(copy(N.A)), EcologicalNetworks.species_objects(N)...)
+T = BipartiteQuantitativeNetwork(float.(copy(N.edges)), species(N; dims=1), species(N; dims=2))
 O = copy(T)
 R = EcologicalNetworks.linearfilter(N; α=[0.0, 1.0, 1.0, 1.0])
 
-@showprogress for i in eachindex(N.A)
-    if !(N.A[i])
+A = Array(N.edges)
+nj = sortperm(vec(sum(A; dims=1)))
+ni = sortperm(vec(sum(A; dims=2)))
+
+plot(
+    heatmap(Array(lowrank(N; r=1).edges)[ni, nj], c=:cividis, frame=:none, cbar=false),
+    heatmap(Array(lowrank(N; r=3).edges)[ni, nj], c=:cividis, frame=:none, cbar=false),
+    heatmap(Array(lowrank(N; r=10).edges)[ni, nj], c=:cividis, frame=:none, cbar=false),
+    heatmap(Array(lowrank(N; r=60).edges)[ni, nj], c=:cividis, frame=:none, cbar=false),
+    size=(1000, 1000),
+    dpi = 300
+)
+savefig("../figures/lowrank_illustration.png")
+
+@showprogress for i in eachindex(N.edges)
+    if !(N.edges[i])
         impute!(O, T, R, i; r=2)
     end
 end

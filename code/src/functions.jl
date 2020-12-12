@@ -1,9 +1,9 @@
 function LinearAlgebra.svd(N::T) where {T <: AbstractEcologicalNetwork}
-    return svd(N.A)
+    return svd(Array(N.edges))
 end
 
 function LinearAlgebra.rank(N::T) where {T <: AbstractEcologicalNetwork}
-    return rank(N.A)
+    return rank(Array(N.edges))
 end
 
 function lowrank(N::T; r::Integer=1) where {T <: AbstractEcologicalNetwork}
@@ -11,7 +11,7 @@ function lowrank(N::T; r::Integer=1) where {T <: AbstractEcologicalNetwork}
     factor = svd(N)
     factor.S[(r+1):end] .= zero(eltype(factor.S))
     _rt = T <: AbstractUnipartiteNetwork ? UnipartiteQuantitativeNetwork : BipartiteQuantitativeNetwork
-    return _rt(factor.U * Diagonal(factor.S) * factor.Vt, EcologicalNetworks.species_objects(N)...)
+    return _rt(factor.U * Diagonal(factor.S) * factor.Vt, EcologicalNetworks._species_objects(N)...)
 end
 
 function impute!(output::T1, tmp::T1, template::T2, position; r=2, maxiter=50, tolerance=1e-2) where {T1 <: QuantitativeNetwork, T2 <: ProbabilisticNetwork}
