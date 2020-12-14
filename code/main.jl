@@ -36,6 +36,26 @@ plot(
 )
 savefig("../figures/lowrank_illustration.png")
 
+Threads.@threads for i in eachindex(N)
+    t = copy(T)
+    t[i] = float(R[i])
+    init = t[i]
+    Δ = 1.0
+    iter = 1
+    while Δ > 1e-2
+        iter += 1
+        A = lowrank(t; r=2)
+        Δ = abs(A[i] - t[i])
+        t[i] = A[i]
+        iter ≥ 50 && break
+    end
+    # We only update if the value increased
+    if t[i] > init
+        O[i] = t[i]
+        @info "Position $(i) on $(Threads.threadid()) - from $(init) to $(O[i]) "
+    end
+end
+
 @showprogress for i in eachindex(N.edges)
     if !(N[i])
         impute!(O, T, R, i; r=2)
