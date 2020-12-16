@@ -120,7 +120,7 @@ need of having other side information, such as traits or phylogeny. Considering
 our $m \times n$ data matrix $\mathbf{X}$, the initial value of a missing
 interaction was fixed to the filtered value $\mathbf{F}_{ij}$ :
 
-$$\mathbf{F}_{i,j} =  \mathbf{\alpha_{1}X_{i,j}+\alpha_{2}\frac{1}{m}\sum\limits_{k=1}^m X_{kj} + \alpha_{3}\frac{1}{n}\sum\limits_{l=1}^n X_{il} + \alpha_{4}\frac{1}{mn}\sum\limits_{k=1}^m\sum\limits_{l=1}^n X_{kl} }$$ {#eq:linearfiltering}
+$$\mathbf{F}_{i,j} =  \mathbf{\alpha_{1}X_{i,j}+\alpha_{2}\frac{1}{m}\sum_{k=1}^m X_{kj} + \alpha_{3}\frac{1}{n}\sum_{l=1}^n X_{il} + \alpha_{4}\frac{1}{mn}\sum_{k=1}^m\sum_{l=1}^n X_{kl} }$$ {#eq:linearfiltering}
 
 where $\sum\limits_{i=1}^4 \alpha_{i} = 1$ and $\alpha_{i} \in [0,1]$. Using
 this filter allowed to test different scenarios. Firstly, weight was only given
