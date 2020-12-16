@@ -1,6 +1,7 @@
 using DataFrames
 import CSV
 using ProgressMeter
+using StatsPlots
 
 hyperparameters = DataFrame(CSV.File(joinpath("data", "hyperparameters.csv")))
 virionette = DataFrame(CSV.File(joinpath("data", "virionette.csv")))
@@ -49,3 +50,9 @@ hyperparameters.case = 1:size(hyperparameters, 1)
 
 res = rightjoin(hyperparameters, result_df; on=:case)
 CSV.write("results.csv", res)
+
+# Ternary plot values
+res.x = 0.5 .* (2 .* res.a3 .+ res.a4)
+res.y = 0.5 .* sqrt(3.0) .* res.a4
+
+@df res scatter(:x, :y, grid=false, aspectratio=1, frame=:none)
