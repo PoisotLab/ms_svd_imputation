@@ -55,4 +55,4 @@ CSV.write("results.csv", res)
 res.x = 0.5 .* (2 .* res.a3 .+ res.a4)
 res.y = 0.5 .* sqrt(3.0) .* res.a4
 
-@df res scatter(:x, :y, grid=false, aspectratio=1, frame=:none)
+@df res scatter(:x, :y, grid=false, aspectratio=1, frame=:none, mc=:top10, legend=false)
