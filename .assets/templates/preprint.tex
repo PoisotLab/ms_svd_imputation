@@ -6,6 +6,9 @@ ${ _pandoc() }
 ${ _preprint() }
 
 \begin{document}
+\tikz [remember picture, overlay] %
+\node [shift={(-0.6in,1.1cm)},scale=0.2,opacity=0.4] at (current page.south east)[anchor=south east]{\includegraphics{logo}};%
+\pagestyle{normal}
 \thispagestyle{firstpage}
 
 \newcommand{\colorRule}[3][black]{\textcolor[HTML]{#1}{\rule{#2}{#3}}}

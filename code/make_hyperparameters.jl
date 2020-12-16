@@ -27,4 +27,4 @@ for r in rnks
     end
 end
 
-CSV.write("code/hyperparameters.csv", df)
+CSV.write("hpc/hyperparameters.csv", df)
