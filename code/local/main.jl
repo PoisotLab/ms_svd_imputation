@@ -62,6 +62,9 @@ CSV.write("results.csv", res)
 res.x = 0.5 .* (2 .* res.a3 .+ res.a4)
 res.y = 0.5 .* sqrt(3.0) .* res.a4
 
-plot(res, x=:x, y=:y, xgroup=:r, color=:best,
-    Geom.subplot_grid(Geom.point)
+plot(res, x=:x, y=:y, xgroup=:r, color=:top5, size=:top5,
+    Geom.subplot_grid(
+        Geom.point,
+        Coord.cartesian(xmin=0, xmax=1, ymin=0, ymax=1)
+    )
 )
