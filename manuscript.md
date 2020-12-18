@@ -122,19 +122,25 @@ interaction was fixed to the filtered value $\mathbf{F}_{ij}$ :
 
 $$\mathbf{F}_{i,j} =  \mathbf{\alpha_{1}X_{i,j}+\alpha_{2}\frac{1}{m}\sum_{k=1}^m X_{kj} + \alpha_{3}\frac{1}{n}\sum_{l=1}^n X_{il} + \alpha_{4}\frac{1}{mn}\sum_{k=1}^m\sum_{l=1}^n X_{kl} }$$ {#eq:linearfiltering}
 
-where $\sum\limits_{i=1}^4 \alpha_{i} = 1$ and $\alpha_{i} \in [0,1]$. Using
-this filter allowed to test different scenarios. Firstly, weight was only given
-to the average of all interaction values in the matrix for the calculation of
-the initial value ($\alpha = [0,0,0,1]$), for every chosen rank. Then, weight
-was given according to the average in which every host ($\alpha = [0,1,0,0]$),
-virus ($\alpha = [0,0,1,0]$), or both ($\alpha = [0,\frac{1}{2},\frac{1}{2},0]$)
-are involved in other interactions. Finally, a combination of the individual
-species' degrees and the total average of interactions within the dataset has
-been used ($\alpha = [0,\frac{1}{3},\frac{1}{3},\frac{1}{3}]$). Other schemes to
-impute the initial value are possible, for example by relying on the relative
-degree of both species, but this would require more guesswork or more
-assumptions, in addition to possibly being sensitive to biases in the
-preferential sampling of some groups.
+where $\sum\limits_{i=1}^4 \alpha_{i} = 1$ and $\alpha_{i} \in [0,1]$.
+
+## Hyper-parameters and prediction scoring
+
+Using the linear filter allows to explore different hypotheses as to which parts
+of network structure are important for predictive ability. As we assume that the
+initial value of 0 in the matrix can be a false positive, we give it no weight
+in the model $\alpha_1 = 0$. We then varied the other parameters on a regular
+grid of 304 points, where the values for $\alpha_4$ (impact of connectance),
+$\alpha_2$ (impact of the number of hosts), and $\alpha_3$ (impact of the number
+of viruses) was varied between 0 and 1. We then applied SVD imputation for each
+of these parameters combinations for ranks 1 to 3.
+
+To rank the predictions made by the SVD-imputation, we took the value for every
+missing interaction after imputation, and divided it by the initial value.
+Values of this score larger than 1 represent an interaction that is deemed
+*more* likely after the SVD imputation than before, and values lower than 1
+represent an interaction that is *less* likely. We therefore removed all
+interactions for which the score was lower than 1.
 
 ## Model validation
 
