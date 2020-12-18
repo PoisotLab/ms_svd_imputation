@@ -299,4 +299,9 @@ aggregate the output of the best recommenders. Combining an accurate model for
 the initial value with the SVD imputation is likely to generate predicted
 interactions that are strong candidates for empirical validation.
 
+**Acknowledgements:** This research was enabled in part by support provided by
+Calcul Québec (www.calculquebec.ca) and Compute Canada (www.computecanada.ca).
+TP and CC were funded by IVADO through the rapid response to COVID special
+initiative.
+
 # References
