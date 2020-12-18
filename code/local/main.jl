@@ -14,8 +14,7 @@ old_betacov_hosts = filter(r -> ismissing(r.Source), fresnel).Sp
 
 softmax = (x) -> exp.(x)./sum(exp.(x))
 
-# Read an imputation file
-function read_imputation(case::Int64)
+function prepare_imputation_file(case::Int64)
     cstring = string(case)
     cfile = joinpath("results", "case_$(cstring).csv")
 
@@ -23,6 +22,15 @@ function read_imputation(case::Int64)
 
     imputation_file = DataFrame(CSV.File(cfile))
     imputation_file.p = softmax(imputation_file.score)
+    filter!(r -> r.strength != 1.0, imputation_file)
+    return imputation_file
+end
+
+# Read an imputation file
+function read_imputation(case::Int64)
+    
+    imputation_file = prepare_imputation_file(case)
+
     imputation_bat = filter(r -> r.to in fresnel.Sp, imputation_file)
     imputation_bat_betacov = filter(r -> r.from == "Betacoronavirus", imputation_bat)
     
