@@ -1,12 +1,11 @@
 using DataFrames
 import CSV
 
-rnks = collect(1:5)
 a2 = Float64[]
 a3 = Float64[]
 a4 = Float64[]
 
-n = 19
+n = 29
 
 for i in LinRange(0.0, 1.0, n)
     for j in LinRange(0.0, 1.0, n)
@@ -20,11 +19,9 @@ for i in LinRange(0.0, 1.0, n)
     end
 end
 
-df = DataFrame(r=Int64[], a2=Float64[], a3=Float64[], a4=Float64[])
-for r in rnks
-    for i in eachindex(a2)
-        push!(df, (r, a2[i], a3[i], a4[i]))
-    end
+df = DataFrame(case=Int64[], a2=Float64[], a3=Float64[], a4=Float64[])
+for i in eachindex(a2)
+    push!(df, (i, a2[i], a3[i], a4[i]))
 end
 
 CSV.write("hpc/hyperparameters.csv", df)
