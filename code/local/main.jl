@@ -76,3 +76,11 @@ plot(res, x=:x, y=:y, xgroup=:r, color=:top10, size=:top10,
         Coord.cartesian(xmin=0, xmax=1, ymin=0, ymax=1)
     )
 )
+
+
+n6 = filter(r -> r.r == 6, res)
+
+plot(n6, x=:x, y=:y, color=:top10,
+    Geom.point,
+    Coord.cartesian(xmin=0, xmax=1, ymin=0, ymax=1)
+)
