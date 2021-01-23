@@ -169,16 +169,33 @@ under the three initial value models above (degree, hybrid, and connectance).
 For each of these models, we measured the AUC of the ROC curve **REF**. To
 identify the optimal cutoff in this curve, we selected the probability score
 that maximizes Youden's index of informedness, which works as a "total evidence"
-measure of model confidence, especially in datasets with severe inbalances in
+measure of model confidence, especially in datasets with severe imbalances in
 prevalence.
 
-|   | model       | rank | threshold | AUC   | Youden's index | false discovery | false omission |
-|---|-------------|------|-----------|-------|----------------|-----------------|----------------|
-| 1 | connectance | 12   | 0.846     | 0.849 | 0.64           | 0.09            | 0.23           |
-| 2 | connectance | 11   | 0.908     | 0.846 | 0.62           | 0.08            | 0.25           |
-| 3 | connectance | 17   | 0.929     | 0.844 | 0.62           | 0.08            | 0.24           |
-| 4 | connectance | 8    | 0.705     | 0.842 | 0.59           | 0.13            | 0.24           |
-| 5 | hybrid      | 12   | 0.707     | 0.841 | 0.58           | 0.14            | 0.25           |
+|   | model       | rank | threshold | AUC   | Youden's $J$ | false discovery | false omission |
+|---|-------------|------|-----------|-------|--------------|-----------------|----------------|
+| 1 | connectance | 12   | 0.846     | 0.849 | 0.64         | 0.09            | 0.23           |
+| 2 | connectance | 11   | 0.908     | 0.846 | 0.62         | 0.08            | 0.25           |
+| 3 | connectance | 17   | 0.929     | 0.844 | 0.62         | 0.08            | 0.24           |
+| 4 | connectance | 8    | 0.705     | 0.842 | 0.59         | 0.13            | 0.24           |
+| 5 | hybrid      | 12   | 0.707     | 0.841 | 0.58         | 0.14            | 0.25           |
+
+Table: Summary statistics of the performance for the top 5 models, ranked
+according to the area under the ROC curve. For the sake of completeness, the
+best Youden's index (at the threshold) is reported, as well as the rates of
+false discovery and false omission. {#tbl:modelselection}
+
+The resulst of hyper-parameters tuning is presented in @tbl:modelselection. The
+best performing model, using network connectance as an initial value, and a rank
+12 approximation of the matrix, had a positive predictive value of 0.90, and a
+negative predictive value of 0.76, for an overall accuracy of 0.82. All things
+considered, given that the prevalence in the dataset is very low (only six out
+of every thousand species pair do have an interaction), the best model has
+strong predictive power. The ROC curve for this model is presented in @fig:roc.
+
+![ROC curve for the best model, using network connectance as an initial value,
+and a rank 12 approximation. This model was used to run the prediction of false
+negatives in the entire dataset.](figures/best-model-roc.png){#fig:roc}
 
 # Results and Discussion
 
