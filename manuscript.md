@@ -172,13 +172,13 @@ that maximizes Youden's index of informedness, which works as a "total evidence"
 measure of model confidence, especially in datasets with severe imbalances in
 prevalence.
 
-|   | model       | rank | threshold | AUC   | Youden's $J$ | false discovery | false omission |
-|---|-------------|------|-----------|-------|--------------|-----------------|----------------|
-| 1 | connectance | 12   | 0.846     | 0.849 | 0.64         | 0.09            | 0.23           |
-| 2 | connectance | 11   | 0.908     | 0.846 | 0.62         | 0.08            | 0.25           |
-| 3 | connectance | 17   | 0.929     | 0.844 | 0.62         | 0.08            | 0.24           |
-| 4 | connectance | 8    | 0.705     | 0.842 | 0.59         | 0.13            | 0.24           |
-| 5 | hybrid      | 12   | 0.707     | 0.841 | 0.58         | 0.14            | 0.25           |
+|   | model       | rank | threshold | AUC   | Youden's index | false discovery | false omission |
+|---|-------------|------|-----------|-------|----------------|-----------------|----------------|
+| 1 | connectance | 12   | 0.846     | 0.849 | 0.64           | 0.09            | 0.23           |
+| 2 | connectance | 11   | 0.908     | 0.846 | 0.62           | 0.08            | 0.25           |
+| 3 | connectance | 17   | 0.929     | 0.844 | 0.62           | 0.08            | 0.24           |
+| 4 | connectance | 8    | 0.705     | 0.842 | 0.59           | 0.13            | 0.24           |
+| 5 | hybrid      | 12   | 0.707     | 0.841 | 0.58           | 0.14            | 0.25           |
 
 Table: Summary statistics of the performance for the top 5 models, ranked
 according to the area under the ROC curve. For the sake of completeness, the
