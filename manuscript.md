@@ -43,11 +43,9 @@ information, but we can rely on info contained in the network itself
 
 **TK** main results: optimal rank, number of new associations, top 10 zoonoses
 
-# Methods
+# Dataset
 
-We ran all analyses in *Julia* 1.5.2 [@Bezanson2017JulFre].
-
-## Dataset
+**TK** this actually uses CLOVER now
 
 We apply SVD imputation to the data on wildlife hosts of beta-coronaviruses
 collected by @Becker2020PreWil. This host-virus network is composed of 710
@@ -65,6 +63,11 @@ host-virus pairs for which no interaction were reported; these can be true
 negatives (the virus is unable to infect the host), or false negatives (the
 virus can infect the host but the infection has not been reported). This type of
 problem lends itself well to an approach using a recommender system.
+
+# The model
+
+We ran all analyses in *Julia* 1.5.3 [@Bezanson2017JulFre], on the *Beluga*
+supercomputer operated by the Calcul Québec consortium.
 
 ## Low-rank approximation with Singular Value Decomposition
 
@@ -102,59 +105,80 @@ imputation method using a low-rank approximation would have a good performance.
 
 ## Model structure
 
-For each non-interactions in the dataset, the model then assigns an initial
-value to it and performs iteratively the SVD at chosen rank, until it reaches
+For each non-interaction in the dataset, the model assigns an initial value to
+it and performs iteratively the SVD at chosen rank, until it reaches
 convergence. During this step, the cells in the matrix that are *not* being
-imputed are kept at the actual value. We capped the maximal number of iterations
-at 50, even though the value of the imputed cells stopped changing (defined as a
-step-wise change lower than $10\times \epsilon$) after less than 10 steps in
-most cases. The initial value that we first picked for this illustration is the
-connectance of the global host-virus interaction dataset, which amounts to the
-probability that any pair of organisms are found to interact (0.03).Yet, this
-can overestimate the importance of viruses with a narrow host range, or
-underestimate the importance of generalist viruses. For this reason, the
-assignment of the initial value was then determined based [@Stock2017LinFil]
-work on linear filtering. This method provides a convenient way to assign
-weights to various aspects of network structure, and has been revealed to
-provide a good baseline estimate of how likely it is that a missing interaction
-actually exists, based on the structure of the interaction matrix, without the
-need of having other side information, such as traits or phylogeny. Considering
-our $m \times n$ data matrix $\mathbf{X}$, the initial value of a missing
-interaction was fixed to the filtered value $\mathbf{F}_{ij}$ :
+imputed are kept at their actual value. We capped the maximal number of
+iterations at 50, even though the value of the imputed cells stopped changing
+(defined as a step-wise change lower than $10\times \epsilon$) after less than
+10 steps in most cases. The initial value that we first picked for this
+illustration is the connectance of the global host-virus interaction dataset,
+which amounts to the probability that any pair of organisms are found to
+interact (0.03).Yet, this can overestimate the importance of viruses with a
+narrow host range, or underestimate the importance of generalist viruses. For
+this reason, the assignment of the initial value was then determined based
+[@Stock2017LinFil] work on linear filtering. This method provides a convenient
+way to assign weights to various aspects of network structure, and has been
+revealed to provide a good baseline estimate of how likely it is that a missing
+interaction actually exists, based on the structure of the interaction matrix,
+without the need of having other side information, such as traits or phylogeny.
+Considering our $m \times n$ data matrix $\mathbf{X}$, the initial value of a
+missing interaction was fixed to the filtered value $\mathbf{F}_{ij}$ :
 
 $$\mathbf{F}_{i,j} =  \mathbf{\alpha_{1}X_{i,j}+\alpha_{2}\frac{1}{m}\sum_{k=1}^m X_{kj} + \alpha_{3}\frac{1}{n}\sum_{l=1}^n X_{il} + \alpha_{4}\frac{1}{mn}\sum_{k=1}^m\sum_{l=1}^n X_{kl} }$$ {#eq:linearfiltering}
 
 where $\sum\limits_{i=1}^4 \alpha_{i} = 1$ and $\alpha_{i} \in [0,1]$.
 
-## Hyper-parameters and prediction scoring
+## Prediction scoring
 
 Using the linear filter allows to explore different hypotheses as to which parts
 of network structure are important for predictive ability. As we assume that the
 initial value of 0 in the matrix can be a false positive, we give it no weight
-in the model $\alpha_1 = 0$. We then varied the other parameters on a regular
-grid of 304 points, where the values for $\alpha_4$ (impact of connectance),
-$\alpha_2$ (impact of the number of hosts), and $\alpha_3$ (impact of the number
-of viruses) was varied between 0 and 1. We then applied SVD imputation for each
-of these parameters combinations for ranks 1 to 3.
+in the model $\alpha_1 = 0$. **TK change from here** We then varied the other
+parameters on a regular grid of 304 points, where the values for $\alpha_4$
+(impact of connectance), $\alpha_2$ (impact of the number of hosts), and
+$\alpha_3$ (impact of the number of viruses) was varied between 0 and 1. We then
+applied SVD imputation for each of these parameters combinations for ranks 1 to
+3.
 
 To rank the predictions made by the SVD-imputation, we took the value for every
-missing interaction after imputation, and divided it by the initial value.
-Values of this score larger than 1 represent an interaction that is deemed
-*more* likely after the SVD imputation than before, and values lower than 1
-represent an interaction that is *less* likely. We therefore removed all
-interactions for which the score was lower than 1.
+missing interaction after imputation, and divided it by the initial value, then
+substracted one. This gives an evidence score in $\mathbb{R}$, which we can
+transform into a probability in $[0,1]$ by taking its logistic; therefore, the
+final probability of an interaction is defined as 
 
-## Model validation
+$$
+P(x) = \frac{1}{1+e^{-x}}\,,
+$$
 
-For every rank of the SVD, we examined the top 10 non-interactions with the
-highest score (even though the model technically returns a score for all
-non-interactions). Since there have recently been a number of empirical
-investigations regarding host-virus associations, novel bat hosts of
-betacoronaviruses have been described following the assembly of the
-@Becker2020PreWil dataset used for the model. Therefore, we were able to examine
-and compare which of these novel identified bat hosts for betacoronaviruses have
-also been recovered by SVD, at all ranks between 1 and 5, to confirm the
-accuracy of this technique.
+where $x$ is the evidence for this interaction under our scoring system.
+
+## Model tuning and thresholding
+
+One of the challenges associated with link prediction in this dataset is that
+non-interactions are not necessarily true negatives; most are simply missing
+data. To reach the best prediction, we need to answer three related questions.
+First, what model to assign initial values performs best? Second, what rank is
+sufficient to give the most accurate approximation of the matrix? Finally, what
+threshold on the interaction probability should be applied to the results of the
+best model at the appropriate rank?
+
+To answer this question, we first ran the LF-SVD imputation on a sample of 768
+positive and 768 supposed negative interactions, at all ranks from 1 to 20,
+under the three initial value models above (degree, hybrid, and connectance).
+For each of these models, we measured the AUC of the ROC curve **REF**. To
+identify the optimal cutoff in this curve, we selected the probability score
+that maximizes Youden's index of informedness, which works as a "total evidence"
+measure of model confidence, especially in datasets with severe inbalances in
+prevalence.
+
+|   | model       | rank | threshold | AUC   | Youden's index | false discovery | false omission |
+|---|-------------|------|-----------|-------|----------------|-----------------|----------------|
+| 1 | connectance | 12   | 0.846     | 0.849 | 0.64           | 0.09            | 0.23           |
+| 2 | connectance | 11   | 0.908     | 0.846 | 0.62           | 0.08            | 0.25           |
+| 3 | connectance | 17   | 0.929     | 0.844 | 0.62           | 0.08            | 0.24           |
+| 4 | connectance | 8    | 0.705     | 0.842 | 0.59           | 0.13            | 0.24           |
+| 5 | hybrid      | 12   | 0.707     | 0.841 | 0.58           | 0.14            | 0.25           |
 
 # Results and Discussion
 
@@ -242,13 +266,13 @@ for the filter and to the rank.
 
 [Table 3: Number of novel hosts for betacoronaviruses correctly predicted by the model using linear filtering for the attribution of initial values]
 
-| Alpha  | Rank 1 | Rank 2 | Rank 3 | Rank 4 | Rank 5 |
-|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
-|**[0, 0, 0, 1]**|3|3|1|3|4|
-|**[0, $\frac{1}{2}$, $\frac{1}{2}$, 0]**|3|3|1|3|3|
-|**[0, $\frac{1}{3}$, $\frac{1}{3}$, $\frac{1}{3}$]**|3|3|1|4|2|
-|**[0, 1, 0, 0]**|3|3|1|3|3|
-|**[0, 0, 1, 0]**|3|3|1|4|3|
+|                        Alpha                         | Rank 1 | Rank 2 | Rank 3 | Rank 4 | Rank 5 |
+|:----------------------------------------------------:|:------:|:------:|:------:|:------:|:------:|
+|                   **[0, 0, 0, 1]**                   |   3    |   3    |   1    |   3    |   4    |
+|       **[0, $\frac{1}{2}$, $\frac{1}{2}$, 0]**       |   3    |   3    |   1    |   3    |   3    |
+| **[0, $\frac{1}{3}$, $\frac{1}{3}$, $\frac{1}{3}$]** |   3    |   3    |   1    |   4    |   2    |
+|                   **[0, 1, 0, 0]**                   |   3    |   3    |   1    |   3    |   3    |
+|                   **[0, 0, 1, 0]**                   |   3    |   3    |   1    |   4    |   3    |
 
 From the results presented in Table 3, it is possible to see that when using
 linear filtering for the assignment of initial values, the choice of the
@@ -261,8 +285,8 @@ calculated, and the results obtained are presented in Table 4.
 [Table 4: Variation of the value pre and post imputation for the highest scoring interaction at every rank]
 
 | Rank 1 | Rank 2 | Rank 3 | Rank 4 | Rank 5 |
-|:--------:|:--------:|:--------:|:--------:|:--------:|
-|0.536|0.765|0.700|0.990|1.261|
+|:------:|:------:|:------:|:------:|:------:|
+| 0.536  | 0.765  | 0.700  | 0.990  | 1.261  |
 
 This variation was not influenced by the $\alpha$ parameters, but only by the
 rank used. The variation calculated increased as the rank got higher.
