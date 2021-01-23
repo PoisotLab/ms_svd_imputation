@@ -1,0 +1,945 @@
+[
+    {
+        "DOI": "10.1038/s41467-020-16153-4",
+        "author": [
+            {
+                "family": "Albery",
+                "given": "Gregory F."
+            },
+            {
+                "family": "Eskew",
+                "given": "Evan A."
+            },
+            {
+                "family": "Ross",
+                "given": "Noam"
+            },
+            {
+                "family": "Olival",
+                "given": "Kevin J."
+            }
+        ],
+        "container-title": "Nature Communications",
+        "id": "Albery2020PreGlo",
+        "issue": "1",
+        "issued": {
+            "date-parts": [
+                [
+                    2020,
+                    5
+                ]
+            ]
+        },
+        "page": "2260",
+        "publisher": "Nature Publishing Group",
+        "title": "Predicting the global mammalian viral sharing network using phylogeography",
+        "type": "article-journal",
+        "volume": "11"
+    },
+    {
+        "author": [
+            {
+                "family": "Banyard",
+                "given": "Ashley C."
+            },
+            {
+                "family": "Fooks",
+                "given": "Anthony R."
+            }
+        ],
+        "container-title": "Microbiology Australia",
+        "id": "Banyard2017ImpNov",
+        "issue": "1",
+        "issued": {
+            "date-parts": [
+                [
+                    2017
+                ]
+            ]
+        },
+        "page": "17-21",
+        "publisher": "CSIRO",
+        "title": "The impact of novel lyssavirus discovery",
+        "type": "article-journal",
+        "volume": "38"
+    },
+    {
+        "DOI": "10.1101/2020.05.22.111344",
+        "author": [
+            {
+                "family": "Becker",
+                "given": "Daniel J."
+            },
+            {
+                "family": "Albery",
+                "given": "Gregory F."
+            },
+            {
+                "family": "Sjodin",
+                "given": "Anna R."
+            },
+            {
+                "family": "Poisot",
+                "given": "Timoth\u00e9e"
+            },
+            {
+                "family": "Dallas",
+                "given": "Tad A."
+            },
+            {
+                "family": "Eskew",
+                "given": "Evan A."
+            },
+            {
+                "family": "Farrell",
+                "given": "Maxwell J."
+            },
+            {
+                "family": "Guth",
+                "given": "Sarah"
+            },
+            {
+                "family": "Han",
+                "given": "Barbara A."
+            },
+            {
+                "family": "Simmons",
+                "given": "Nancy B."
+            },
+            {
+                "family": "Carlson",
+                "given": "Colin J."
+            }
+        ],
+        "chapter-number": "New Results",
+        "container-title": "bioRxiv",
+        "id": "Becker2020PreWil",
+        "issued": {
+            "date-parts": [
+                [
+                    2020,
+                    5
+                ]
+            ]
+        },
+        "page": "2020.05.22.111344",
+        "publisher": "Cold Spring Harbor Laboratory",
+        "title": "Predicting wildlife hosts of betacoronaviruses for SARS-CoV-2 sampling prioritization",
+        "type": "article-journal"
+    },
+    {
+        "DOI": "10.3390/v7052185",
+        "PMCID": "PMC4452902",
+        "PMID": "25928203",
+        "author": [
+            {
+                "family": "Belaganahalli",
+                "given": "Manjunatha N."
+            },
+            {
+                "family": "Maan",
+                "given": "Sushila"
+            },
+            {
+                "family": "Maan",
+                "given": "Narender S."
+            },
+            {
+                "family": "Brownlie",
+                "given": "Joe"
+            },
+            {
+                "family": "Tesh",
+                "given": "Robert"
+            },
+            {
+                "family": "Attoui",
+                "given": "Houssam"
+            },
+            {
+                "family": "Mertens",
+                "given": "Peter P. C."
+            }
+        ],
+        "container-title": "Viruses",
+        "id": "Belaganahalli2015GenCha",
+        "issue": "5",
+        "issued": {
+            "date-parts": [
+                [
+                    2015,
+                    4
+                ]
+            ]
+        },
+        "other-ids": "Belaganahalli2015GenChaa",
+        "page": "2185-2209",
+        "title": "Genetic Characterization of the Tick-Borne Orbiviruses",
+        "type": "article-journal",
+        "volume": "7"
+    },
+    {
+        "DOI": "10.1137/141000671",
+        "author": [
+            {
+                "family": "Bezanson",
+                "given": "J."
+            },
+            {
+                "family": "Edelman",
+                "given": "A."
+            },
+            {
+                "family": "Karpinski",
+                "given": "S."
+            },
+            {
+                "family": "Shah",
+                "given": "V."
+            }
+        ],
+        "container-title": "SIAM Review",
+        "id": "Bezanson2017JulFre",
+        "issue": "1",
+        "issued": {
+            "date-parts": [
+                [
+                    2017,
+                    1
+                ]
+            ]
+        },
+        "page": "65-98",
+        "title": "Julia: A Fresh Approach to Numerical Computing",
+        "type": "article-journal",
+        "volume": "59"
+    },
+    {
+        "DOI": "10.1007/BF02288367",
+        "author": [
+            {
+                "family": "Eckart",
+                "given": "Carl"
+            },
+            {
+                "family": "Young",
+                "given": "Gale"
+            }
+        ],
+        "container-title": "Psychometrika",
+        "id": "Eckart1936AppOne",
+        "issue": "3",
+        "issued": {
+            "date-parts": [
+                [
+                    1936,
+                    9
+                ]
+            ]
+        },
+        "page": "211-218",
+        "title": "The approximation of one matrix by another of lower rank",
+        "type": "article-journal",
+        "volume": "1"
+    },
+    {
+        "author": [
+            {
+                "family": "Forsythe",
+                "given": "George"
+            },
+            {
+                "family": "Moler",
+                "given": "Cleve"
+            }
+        ],
+        "id": "Forsythe1967ComSol",
+        "issued": {
+            "date-parts": [
+                [
+                    1967
+                ]
+            ]
+        },
+        "publisher": "Prentice Hall",
+        "publisher-place": "Englewood Cliffs, New Jersey",
+        "title": "Computer Solution of Linear Algebraic Systems",
+        "type": "book"
+    },
+    {
+        "author": [
+            {
+                "family": "Golub",
+                "given": "Gene H."
+            },
+            {
+                "family": "Reinsch",
+                "given": "Christian"
+            }
+        ],
+        "container-title": "Linear Algebra",
+        "id": "Golub1971SinVal",
+        "issued": {
+            "date-parts": [
+                [
+                    1971
+                ]
+            ]
+        },
+        "page": "134-151",
+        "publisher": "Springer",
+        "title": "Singular value decomposition and least squares solutions",
+        "type": "chapter"
+    },
+    {
+        "DOI": "10.1016/0024-3795(87)90114-5",
+        "author": [
+            {
+                "family": "Golub",
+                "given": "G. H."
+            },
+            {
+                "family": "Hoffman",
+                "given": "Alan"
+            },
+            {
+                "family": "Stewart",
+                "given": "G. W."
+            }
+        ],
+        "container-title": "Linear Algebra and its Applications",
+        "id": "Golub1987GenEck",
+        "issued": {
+            "date-parts": [
+                [
+                    1987,
+                    4
+                ]
+            ]
+        },
+        "page": "317-327",
+        "title": "A generalization of the Eckart-Young-Mirsky matrix approximation theorem",
+        "type": "article-journal",
+        "volume": "88-89"
+    },
+    {
+        "DOI": "10.15252/embr.201642534",
+        "PMCID": "PMC5278609",
+        "PMID": "27170620",
+        "author": [
+            {
+                "family": "Han",
+                "given": "Barbara A."
+            },
+            {
+                "family": "Drake",
+                "given": "John M."
+            }
+        ],
+        "container-title": "EMBO reports",
+        "id": "Han2016FutDir",
+        "issue": "6",
+        "issued": {
+            "date-parts": [
+                [
+                    2016,
+                    6
+                ]
+            ]
+        },
+        "keyword": "Communicable Disease Control,Communicable Diseases; Emerging,Decision Support Systems; Clinical,Disease Outbreaks,Earthquakes,Global Warming,Humans,Risk,Tsunamis",
+        "page": "785-789",
+        "title": "Future directions in analytics for infectious disease intelligence: Toward an integrated warning system for emerging pathogens",
+        "type": "article-journal",
+        "volume": "17"
+    },
+    {
+        "DOI": "10.3201/eid2404.171696",
+        "author": [
+            {
+                "family": "Hu",
+                "given": "Shu-Chia"
+            },
+            {
+                "family": "Hsu",
+                "given": "Chao-Lung"
+            },
+            {
+                "family": "Lee",
+                "given": "Ming-Shiuh"
+            },
+            {
+                "family": "Tu",
+                "given": "Yang-Chang"
+            },
+            {
+                "family": "Chang",
+                "given": "Jen-Chieh"
+            },
+            {
+                "family": "Wu",
+                "given": "Chieh-Hao"
+            },
+            {
+                "family": "Lee",
+                "given": "Shu-Hwae"
+            },
+            {
+                "family": "Ting",
+                "given": "Lu-Jen"
+            },
+            {
+                "family": "Tsai",
+                "given": "Kwok-Rong"
+            },
+            {
+                "family": "Cheng",
+                "given": "Ming-Chu"
+            },
+            {
+                "family": "Tu",
+                "given": "Wen-Jane"
+            },
+            {
+                "family": "Hsu",
+                "given": "Wei-Cheng"
+            }
+        ],
+        "container-title": "Emerging Infectious Diseases",
+        "id": "Hu2018LysJap",
+        "issued": {
+            "date-parts": [
+                [
+                    2018
+                ]
+            ]
+        },
+        "title": "Lyssavirus in Japanese Pipistrelle, Taiwan - Volume 24, Number 4April 2018 - Emerging Infectious Diseases journal - CDC",
+        "type": "article-journal"
+    },
+    {
+        "DOI": "10.1098/rspb.2019.2736",
+        "author": [
+            {
+                "family": "Johnson",
+                "given": "Christine K."
+            },
+            {
+                "family": "Hitchens",
+                "given": "Peta L."
+            },
+            {
+                "family": "Pandit",
+                "given": "Pranav S."
+            },
+            {
+                "family": "Rushmore",
+                "given": "Julie"
+            },
+            {
+                "family": "Evans",
+                "given": "Tierra Smiley"
+            },
+            {
+                "family": "Young",
+                "given": "Cristin C. W."
+            },
+            {
+                "family": "Doyle",
+                "given": "Megan M."
+            }
+        ],
+        "container-title": "Proceedings of the Royal Society B: Biological Sciences",
+        "id": "Johnson2020GloShi",
+        "issue": "1924",
+        "issued": {
+            "date-parts": [
+                [
+                    2020,
+                    4
+                ]
+            ]
+        },
+        "page": "20192736",
+        "publisher": "Royal Society",
+        "title": "Global shifts in mammalian population trends reveal key predictors of virus spillover risk",
+        "type": "article-journal",
+        "volume": "287"
+    },
+    {
+        "DOI": "10.1038/nature06536",
+        "author": [
+            {
+                "family": "Jones",
+                "given": "Kate E."
+            },
+            {
+                "family": "Patel",
+                "given": "Nikkita G."
+            },
+            {
+                "family": "Levy",
+                "given": "Marc A."
+            },
+            {
+                "family": "Storeygard",
+                "given": "Adam"
+            },
+            {
+                "family": "Balk",
+                "given": "Deborah"
+            },
+            {
+                "family": "Gittleman",
+                "given": "John L."
+            },
+            {
+                "family": "Daszak",
+                "given": "Peter"
+            }
+        ],
+        "container-title": "Nature",
+        "id": "Jones2008GloTre",
+        "issue": "7181",
+        "issued": {
+            "date-parts": [
+                [
+                    2008,
+                    2
+                ]
+            ]
+        },
+        "page": "990-993",
+        "publisher": "Nature Publishing Group",
+        "title": "Global trends in emerging infectious diseases",
+        "type": "article-journal",
+        "volume": "451"
+    },
+    {
+        "DOI": "10.1126/science.1177345",
+        "PMID": "19965751",
+        "author": [
+            {
+                "family": "Lloyd-Smith",
+                "given": "James O."
+            },
+            {
+                "family": "George",
+                "given": "Dylan"
+            },
+            {
+                "family": "Pepin",
+                "given": "Kim M."
+            },
+            {
+                "family": "Pitzer",
+                "given": "Virginia E."
+            },
+            {
+                "family": "Pulliam",
+                "given": "Juliet R. C."
+            },
+            {
+                "family": "Dobson",
+                "given": "Andrew P."
+            },
+            {
+                "family": "Hudson",
+                "given": "Peter J."
+            },
+            {
+                "family": "Grenfell",
+                "given": "Bryan T."
+            }
+        ],
+        "chapter-number": "Review",
+        "container-title": "Science",
+        "id": "Lloyd-Smith2009EpiDyn",
+        "issue": "5958",
+        "issued": {
+            "date-parts": [
+                [
+                    2009,
+                    12
+                ]
+            ]
+        },
+        "page": "1362-1367",
+        "publisher": "American Association for the Advancement of Science",
+        "title": "Epidemic Dynamics at the Human-Animal Interface",
+        "type": "article-journal",
+        "volume": "326"
+    },
+    {
+        "DOI": "10.1038/nrmicro.2017.45",
+        "author": [
+            {
+                "family": "Plowright",
+                "given": "Raina K."
+            },
+            {
+                "family": "Parrish",
+                "given": "Colin R."
+            },
+            {
+                "family": "McCallum",
+                "given": "Hamish"
+            },
+            {
+                "family": "Hudson",
+                "given": "Peter J."
+            },
+            {
+                "family": "Ko",
+                "given": "Albert I."
+            },
+            {
+                "family": "Graham",
+                "given": "Andrea L."
+            },
+            {
+                "family": "Lloyd-Smith",
+                "given": "James O."
+            }
+        ],
+        "container-title": "Nature Reviews Microbiology",
+        "id": "Plowright2017PatZoo",
+        "issue": "8",
+        "issued": {
+            "date-parts": [
+                [
+                    2017,
+                    8
+                ]
+            ]
+        },
+        "page": "502-510",
+        "publisher": "Nature Publishing Group",
+        "title": "Pathways to zoonotic spillover",
+        "type": "article-journal",
+        "volume": "15"
+    },
+    {
+        "PMID": "4652365",
+        "author": [
+            {
+                "family": "Pursell",
+                "given": "A. R."
+            },
+            {
+                "family": "Peckham",
+                "given": "J. C."
+            },
+            {
+                "family": "Cole",
+                "given": "J. R."
+            },
+            {
+                "family": "Stewart",
+                "given": "W. C."
+            },
+            {
+                "family": "Mitchell",
+                "given": "F. E."
+            }
+        ],
+        "container-title": "Journal of the American Veterinary Medical Association",
+        "id": "Pursell1972NatOcc",
+        "issue": "10",
+        "issued": {
+            "date-parts": [
+                [
+                    1972,
+                    11
+                ]
+            ]
+        },
+        "keyword": "Animals,Brain,Cells; Cultured,Cytopathogenic Effect; Viral,Encephalitis Viruses,Encephalomyelitis; Equine,Kidney,Microscopy; Electron,Swine,Swine Diseases,Virus Cultivation",
+        "page": "1143-1147",
+        "title": "Naturally occurring and artificially induced eastern encephalomyelitis in pigs",
+        "type": "article-journal",
+        "volume": "161"
+    },
+    {
+        "DOI": "10.1099/vir.0.82220-0",
+        "author": [
+            {
+                "family": "Ren",
+                "given": "Wuze"
+            },
+            {
+                "family": "Li",
+                "given": "Wendong"
+            },
+            {
+                "family": "Yu",
+                "given": "Meng"
+            },
+            {
+                "family": "Hao",
+                "given": "Pei"
+            },
+            {
+                "family": "Zhang",
+                "given": "Yuan"
+            },
+            {
+                "family": "Zhou",
+                "given": "Peng"
+            },
+            {
+                "family": "Zhang",
+                "given": "Shuyi"
+            },
+            {
+                "family": "Zhao",
+                "given": "Guoping"
+            },
+            {
+                "family": "Zhong",
+                "given": "Yang"
+            },
+            {
+                "family": "Wang",
+                "given": "Shengyue"
+            },
+            {
+                "family": "Wang",
+                "given": "Lin-Fa"
+            },
+            {
+                "family": "Shi",
+                "given": "Zhengli"
+            }
+        ],
+        "container-title": "Journal of General Virology",
+        "id": "Ren2006FulGen",
+        "issue": "11",
+        "issued": {
+            "date-parts": [
+                [
+                    2006,
+                    11
+                ]
+            ]
+        },
+        "page": "3355-3359",
+        "title": "Full-length genome sequences of two SARS-like coronaviruses in horseshoe bats and genetic variation analysis",
+        "type": "article-journal",
+        "volume": "87"
+    },
+    {
+        "DOI": "10.1292/jvms.66.747",
+        "author": [
+            {
+                "family": "Sato",
+                "given": "Go"
+            },
+            {
+                "family": "Itou",
+                "given": "Takuya"
+            },
+            {
+                "family": "Shoji",
+                "given": "Youko"
+            },
+            {
+                "family": "Miura",
+                "given": "Yasuo"
+            },
+            {
+                "family": "Mikami",
+                "given": "Takeshi"
+            },
+            {
+                "family": "Ito",
+                "given": "Mikako"
+            },
+            {
+                "family": "Kurane",
+                "given": "Ichiro"
+            },
+            {
+                "family": "Samara",
+                "given": "Samir I."
+            },
+            {
+                "family": "Carvalho",
+                "given": "Adolorata A. B."
+            },
+            {
+                "family": "Nociti",
+                "given": "Darci P."
+            },
+            {
+                "family": "Ito",
+                "given": "Fumio H."
+            },
+            {
+                "family": "Sakai",
+                "given": "Takeo"
+            }
+        ],
+        "container-title": "Journal of Veterinary Medical Science",
+        "id": "Sato2004GenPhy",
+        "issue": "7",
+        "issued": {
+            "date-parts": [
+                [
+                    2004
+                ]
+            ]
+        },
+        "keyword": "Brazil,glycoprotein,molecular epidemiology,rabies virus,vampire bat",
+        "page": "747-753",
+        "title": "Genetic and Phylogenetic Analysis of Glycoprotein of Rabies Virus Isolated from Several Species in Brazil",
+        "type": "article-journal",
+        "volume": "66"
+    },
+    {
+        "DOI": "10.3390/tropicalmed4010031",
+        "PMCID": "PMC6473451",
+        "PMID": "30736432",
+        "author": [
+            {
+                "family": "Shipley",
+                "given": "Rebecca"
+            },
+            {
+                "family": "Wright",
+                "given": "Edward"
+            },
+            {
+                "family": "Selden",
+                "given": "David"
+            },
+            {
+                "family": "Wu",
+                "given": "Guanghui"
+            },
+            {
+                "family": "Aegerter",
+                "given": "James"
+            },
+            {
+                "family": "Fooks",
+                "given": "Anthony R"
+            },
+            {
+                "family": "Banyard",
+                "given": "Ashley C"
+            }
+        ],
+        "container-title": "Tropical Medicine and Infectious Disease",
+        "id": "Shipley2019BatVir",
+        "issue": "1",
+        "issued": {
+            "date-parts": [
+                [
+                    2019,
+                    2
+                ]
+            ]
+        },
+        "title": "Bats and Viruses: Emergence of Novel Lyssaviruses and Association of Bats with Viral Zoonoses in the EU",
+        "type": "article-journal",
+        "volume": "4"
+    },
+    {
+        "DOI": "10.1038/srep45908",
+        "author": [
+            {
+                "family": "Stock",
+                "given": "Michiel"
+            },
+            {
+                "family": "Poisot",
+                "given": "Timoth\u00e9e"
+            },
+            {
+                "family": "Waegeman",
+                "given": "Willem"
+            },
+            {
+                "family": "Baets",
+                "given": "Bernard De"
+            }
+        ],
+        "container-title": "Scientific Reports",
+        "id": "Stock2017LinFil",
+        "issued": {
+            "date-parts": [
+                [
+                    2017,
+                    4
+                ]
+            ]
+        },
+        "page": "45908",
+        "title": "Linear filtering reveals false negatives in species interaction data",
+        "type": "article-journal",
+        "volume": "7"
+    },
+    {
+        "DOI": "10.1016/j.ijid.2014.04.016",
+        "author": [
+            {
+                "family": "Wang",
+                "given": "Lihua"
+            },
+            {
+                "family": "Tang",
+                "given": "Qing"
+            },
+            {
+                "family": "Liang",
+                "given": "Guodong"
+            }
+        ],
+        "container-title": "International Journal of Infectious Diseases",
+        "id": "Wang2014RabRab",
+        "issued": {
+            "date-parts": [
+                [
+                    2014,
+                    8
+                ]
+            ]
+        },
+        "keyword": "Genetic diversity,Mainland China,Phylogeny,Wildlife rabies",
+        "page": "122-129",
+        "title": "Rabies and rabies virus in wildlife in mainland China, 1990",
+        "type": "article-journal",
+        "volume": "25"
+    },
+    {
+        "DOI": "10.1016/S0140-6736(04)15792-9",
+        "PMID": "15043965",
+        "author": [
+            {
+                "family": "Warrell",
+                "given": "M. J."
+            },
+            {
+                "family": "Warrell",
+                "given": "D. A."
+            }
+        ],
+        "container-title": "The Lancet",
+        "id": "Warrell2004RabOth",
+        "issue": "9413",
+        "issued": {
+            "date-parts": [
+                [
+                    2004,
+                    3
+                ]
+            ]
+        },
+        "page": "959-969",
+        "publisher": "Elsevier",
+        "title": "Rabies and other lyssavirus diseases",
+        "type": "article-journal",
+        "volume": "363"
+    }
+]

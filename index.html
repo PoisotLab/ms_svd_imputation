@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Linear Filtering as an imputation method for Singular Value Decomposition inference of host-virus associations</title>
+    <script src="https://hypothes.is/embed.js" async></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Mono&family=Fira+Sans+Condensed:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Fira+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+        :root {
+            --citation: #1976D2;
+            --structure: #00897B;
+            --light: #9E9E9E;
+            --pale: #e0e0e0;
+            --nav: #fdfdfd;
+
+            --width: 820px;
+            --inner-space: 1.2em;
+        }
+
+        body {
+            font-family: "Fira Sans", sans-serif;
+            margin: 0 0;
+            padding: 0 0;
+        }
+
+        article > p {
+            line-height: 135%;
+        }
+        article > h1 {
+            padding-top: 3em;
+        }
+        a {
+            text-decoration: none;
+            color: #000;
+            border-bottom: 1px solid var(--structure);
+        }
+        a:hover {
+            font-weight: 600;
+        }
+        .citation {
+            color: var(--citation);
+        }
+        .container {
+            margin: 0em auto;
+            max-width: var(--width);
+            padding: var(--inner-space);
+        }
+        header > .container {
+            max-width: 100vw;
+        }
+        code, pre {
+            font-family: "Fira Mono", monospace;
+        }
+        pre {
+            white-space: pre-wrap;
+        }
+        h1, h2, h3 {
+            color: var(--structure);
+            font-family: "Fira Sans Condensed", sans-serif;
+        }
+        header {
+            font-family: "Fira Sans Condensed", sans-serif;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            background-color: var(--nav);
+            border: 1px solid var(--pale);
+            z-index: 5;
+            color: black;
+        }
+        .header--title {
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+        .header--authors > span {
+            color: var(--light);
+            font-weight: 400;
+        }
+        main {
+            padding-top: 8em !important;
+            padding-bottom: 8em !important;
+        }
+        footer {
+            background-color: var(--pale);
+            font-weight: 300;
+        }
+        .abstract {
+            color: var(--light);
+            margin-bottom: 5em;
+        }
+        figure {
+            max-width: 100%;
+            border: 1px solid var(--pale);
+            border-radius: 2px;
+            margin: 1em 0.5em;
+        }
+        figure > img {
+            max-width: 100%;
+            display: block;
+            margin: 0em auto;
+        }
+        figure > figcaption {
+            padding: var(--inner-space);
+        }
+        table {
+            width: 100%;
+            min-width: 100%;
+            border-collapse: collapse;
+        }
+        table > caption {
+            padding: var(--inner-space);
+        }
+        figcaption, caption {
+            color: var(--light);
+            font-weight: 300;
+        }
+        thead {
+            color: var(--structure);
+        }
+        td, th {
+            padding: 3px;
+        }
+        tr > th {
+            text-align: center !important;
+        }
+        tr {
+            border-top: 1px solid var(--light);
+            border-bottom: 1px solid var(--light);
+        }
+        tbody > tr:nth-child(even) {background: var(--pale)};
+        tbody {
+            border-bottom: 1px solid var(--structure);
+        }
+        #refs {
+            font-size: 90%;
+            column-count: 2;
+        }
+        #refs > .csl-entry {
+            padding-bottom: 0.2em;
+            padding-top: 0.2em;
+        }
+        .hanging-indent > .csl-entry {
+            padding-left: 15px ;
+            text-indent: -15px ;
+        }    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.css"
+    integrity="sha384-D+9gmBxUQogRLqvARvNLmA9hS2x//eK1FhVb9PiU86gmcrBrJAQT8okdJ4LMp2uv" crossorigin="anonymous" />
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.js"
+    integrity="sha384-483A6DwYfKeDa0Q52fJmxFXkcPCFfnXMoXblOkJ4JcA8zATN6Tm78UNL72AKk+0O"
+    crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/contrib/auto-render.min.js"
+    integrity="sha384-yACMu8JWxKzSp/C1YV86pzGiQ/l1YUfE8oPuahJQxzehAjEt2GiQuy/BIvl9KyeF"
+    crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false }
+                ]
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header--title">Linear Filtering as an imputation method for Singular Value Decomposition inference of host-virus associations</div>
+            <div class="header--authors">
+                                <span class="header--author">
+                                        Marie-Andrée Ouellet
+                                                                <sup class="affilcode">1</sup>
+                                    </span>
+                                <span class="header--author">
+                                        Gregory Albery
+                                                                <sup class="affilcode">2</sup>
+                                    </span>
+                                <span class="header--author">
+                                        Dan Becker
+                                                                <sup class="affilcode">3</sup>
+                                    </span>
+                                <span class="header--author">
+                                        Colin J. Carlson
+                                                                <sup class="affilcode">4</sup>
+                                            <sup class="affilcode">5</sup>
+                                    </span>
+                                <span class="header--author">
+                                        <a href="https://orcid.org/0000-0002-0735-5184" target="_blank">
+                        Timothée Poisot
+                    </a>
+                                                                <sup class="affilcode">1</sup>
+                                            <sup class="affilcode">6</sup>
+                                    </span>
+                            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="abstract">
+            <b>Abstract:</b> The current pandemic of SARS-CoV-2 is a stark reminder that we need a better understanding of the movements of viruses through novel animal hosts, and ultimately to humans. The task of predicting which virus can infect which host, and where spillovers are likely to happen, still remains difficult. Typically, anticipatory approaches can be limited by numerous difficulties (lack of suitable data, disagreement between models, etc.), and would therefore benefit from adding methods allowing imputation and producing results that could easily be added to ensemble models. In this study, we explore the potential of using the Singular Value Decomposition (SVD) technique as an imputation method to predict host-virus interactions.<br />
+            <div class="artifacts">
+                <a href="draft.pdf" title="Draft PDF" target="_blank">draft</a>
+                <a href="preprint.pdf" title="Preprint PDF" target="_blank">preprint</a>
+            </div>
+        </section>
+        
+        <article>
+            <p><strong>TK</strong> rework this paragraph: need to predict host-virus associations</p>
+            <p>The current pandemic of SARS-CoV-2 is a stark reminder that movement of viruses through novel animal hosts, and ultimately to human through zoonotic spillovers <span class="citation" data-cites="Plowright2017PatZoo">(Plowright et al. 2017)</span>, requires that we understand the complexity of our biological surroundings. Indeed, the fact that the majority of emerging infectious diseases are caused by zoonotic pathogens from wildlife sources <span class="citation" data-cites="Jones2008GloTre">(Jones et al. 2008)</span> gives some urgency to the task of predicting which viruses can be found in which hosts, so as to provide guidance on where and what species to sample and where spillovers are likely to happen <span class="citation" data-cites="Johnson2020GloShi Albery2020PreGlo">(Johnson et al. 2020; Albery et al. 2020)</span>.</p>
+            <p>As seen with SARS-CoV and MERS-CoV epidemics, novel human infections by viruses are representing a serious threat to global public health, and being able to prevent future viral emergence now appears as a fundamental tool among our society. Zoonotic dynamics usually involve three main stages: transmission within the animal reservoir, cross-species spillover and transmission to human, and finally, transmission among humans <span class="citation" data-cites="Lloyd-Smith2009EpiDyn">(Lloyd-Smith et al. 2009)</span>. In the past decades, substantial research effort has been put in studying and predicting dynamics at the animal-human interface, but tracing back the ultimate origin of novel zoonotic viruses remains a major difficulty <span class="citation" data-cites="Becker2020PreWil">(Becker et al. 2020)</span>. Also, the main strategy adopted so far against infectious diseases consists in taking actions after the emergence by increasing the health infrastructures and vigilance, as well as developing vaccines or medical treatments <span class="citation" data-cites="Han2016FutDir">(Han and Drake 2016)</span>.</p>
+            <p>As suggested by <span class="citation" data-cites="Han2016FutDir">Han and Drake (2016)</span>, a more efficient approach would be anticipatory. Yet an anticipatory approach can be limited by lack of suitable data, and as <span class="citation" data-cites="Becker2020PreWil">Becker et al. (2020)</span> highlighted, by disagreement between models. The task of predicting possible host-virus interactions would therefore benefit from adding methods that allow imputation, and can produce results that are easily added to ensemble models. Here, we explore an approach focusing on the first stage of zoonoses dynamics, by using the Singular Value Decomposition (SVD) as an imputation method for identifying unobserved host-virus interactions, acting as potential intermediate hosts in diseases transmissions.</p>
+            <p><strong>TK</strong> SVD is a way to do link prediction in the absence of external information, but we can rely on info contained in the network itself</p>
+            <p><strong>TK</strong> main results: optimal rank, number of new associations, top 10 zoonoses</p>
+            <h1 id="dataset">Dataset</h1>
+            <p><strong>TK</strong> this actually uses CLOVER now</p>
+            <p>We apply SVD imputation to the data on wildlife hosts of beta-coronaviruses collected by <span class="citation" data-cites="Becker2020PreWil">Becker et al. (2020)</span>. This host-virus network is composed of 710 mammalian hosts (resolved at the species level) and 72 viruses (resolved at the genus level). Full data are available from <code>https://github.com/viralemergence/virionette/</code>. While the host-virus interaction have been pulled from published sources, specific attention has been paid to betacoronaviruses, a viral genus at high risk of spillover, and to their potential bat hosts, a mammalian order known to be evolutionary involved in the main viruses zoonotic historical epidemics <span class="citation" data-cites="Shipley2019BatVir Ren2006FulGen">(Shipley et al. 2019; Ren et al. 2006)</span>. Data on interactions between these groups were augmented by a GenBank search to retrieve the hosts associated to sequences of betacoronaviruses. Altogether, this dataset represents a total of 1731 unique interactions, and 49389 host-virus pairs for which no interaction were reported; these can be true negatives (the virus is unable to infect the host), or false negatives (the virus can infect the host but the infection has not been reported). This type of problem lends itself well to an approach using a recommender system.</p>
+            <h1 id="the-model">The model</h1>
+            <p>We ran all analyses in <em>Julia</em> 1.5.3 <span class="citation" data-cites="Bezanson2017JulFre">(Bezanson et al. 2017)</span>, on the <em>Beluga</em> supercomputer operated by the Calcul Québec consortium.</p>
+            <h2 id="low-rank-approximation-with-singular-value-decomposition">Low-rank approximation with Singular Value Decomposition</h2>
+            <p>Singular Value Decomposition <span class="citation" data-cites="Golub1971SinVal Forsythe1967ComSol">(SVD; Gene H. Golub and Reinsch 1971; Forsythe and Moler 1967)</span> is a linear algebra technique used to decompose a data matrix in a product of three matrices:</p>
+            <p><span id="eq:svd"><span class="math display"><strong>X</strong> = <strong>U</strong><strong>Σ</strong><strong>V</strong><sup><em>T</em></sup>   (1)</span></span></p>
+            <p>Where <span class="math inline"><strong>X</strong></span> is a <span class="math inline"><em>m</em> × <em>n</em></span> data matrix (<span class="math inline"><em>m</em> ≥ <em>n</em></span>), <span class="math inline"><strong>U</strong></span> is an unitary <span class="math inline"><em>m</em> × <em>m</em></span> matrix containing the left singular vectors, <span class="math inline"><strong>V</strong></span> is an unitary <span class="math inline"><em>n</em> × <em>n</em></span> matrix containing the right singular vectors and <span class="math inline"><strong>Σ</strong></span> is a diagonal matrix containing the singular values ordered in decreasing order of importance, in regard of the quantity of information that they present. This process allows data reduction by finding key correlations among entries and then by approximating the original matrix.</p>
+            <p>Optimal truncation of the SVD at rank <span class="math inline"><em>r</em></span> <span class="citation" data-cites="Eckart1936AppOne Golub1987GenEck">(Eckart and Young 1936; G. H. Golub, Hoffman, and Stewart 1987)</span> of the singular values will allow data reduction while keeping enough information to obtain a balance between complexity and accuracy within the model. Truncation at rank <span class="math inline"><em>r</em></span> was performed by setting values <span class="math inline"><strong>Σ</strong><sub>(<em>r</em> + 1)..<em>m</em></sub></span> to 0 (we note the resulting vector <span class="math inline"><sup>(<em>r</em>)</sup><strong>Σ</strong></span>), and the resulting low-rank approximation was obtained by</p>
+            <p><span id="eq:lowrank"><span class="math display"><sup>(<em>r</em>)</sup><strong>X</strong> = <strong>U</strong> <sup>(<em>r</em>)</sup><strong>Σ</strong> <strong>V</strong><sup><em>T</em></sup>   (2)</span></span></p>
+            <p>We illustrate the process on our dataset in fig. 1. Removing signal from the matrix through a low-rank approximation hinges on the assumption that most data are generated by “low-rank” processes, whereas the additional ranks would reflect noise or idiosyncracies acting in the dataset. Under this assumption, an imputation method using a low-rank approximation would have a good performance.</p>
+            <figure>
+            <img src="figures/lowrank_illustration.png" id="fig:lowrank" alt="Figure 1: Overview of the dataset (yellow means interaction is more likely, blue means interactions is less likely) at different levels of approximation. At rank very low rank (top row; from left to right, r=1 and r=3) the matrix is mostly capturing the degree of the different species. At higher ranks (bottom row; from left to right, r=10 and r=60), the matrix is capturing increasing differences in species interactions." /><figcaption aria-hidden="true">Figure 1: Overview of the dataset (yellow means interaction is more likely, blue means interactions is less likely) at different levels of approximation. At rank very low rank (top row; from left to right, <span class="math inline"><em>r</em> = 1</span> and <span class="math inline"><em>r</em> = 3</span>) the matrix is mostly capturing the degree of the different species. At higher ranks (bottom row; from left to right, <span class="math inline"><em>r</em> = 10</span> and <span class="math inline"><em>r</em> = 60</span>), the matrix is capturing increasing differences in species interactions.</figcaption>
+            </figure>
+            <h2 id="model-structure">Model structure</h2>
+            <p>For each non-interaction in the dataset, the model assigns an initial value to it and performs iteratively the SVD at chosen rank, until it reaches convergence. During this step, the cells in the matrix that are <em>not</em> being imputed are kept at their actual value. We capped the maximal number of iterations at 50, even though the value of the imputed cells stopped changing (defined as a step-wise change lower than <span class="math inline">10 × <em>ϵ</em></span>) after less than 10 steps in most cases. The initial value that we first picked for this illustration is the connectance of the global host-virus interaction dataset, which amounts to the probability that any pair of organisms are found to interact (0.03).Yet, this can overestimate the importance of viruses with a narrow host range, or underestimate the importance of generalist viruses. For this reason, the assignment of the initial value was then determined based <span class="citation" data-cites="Stock2017LinFil">(Stock et al. 2017)</span> work on linear filtering. This method provides a convenient way to assign weights to various aspects of network structure, and has been revealed to provide a good baseline estimate of how likely it is that a missing interaction actually exists, based on the structure of the interaction matrix, without the need of having other side information, such as traits or phylogeny. Considering our <span class="math inline"><em>m</em> × <em>n</em></span> data matrix <span class="math inline"><strong>X</strong></span>, the initial value of a missing interaction was fixed to the filtered value <span class="math inline"><strong>F</strong><sub><em>i</em><em>j</em></sub></span> :</p>
+            <p><span id="eq:linearfiltering"><span class="math display">$$\mathbf{F}_{i,j} =  \mathbf{\alpha_{1}X_{i,j}+\alpha_{2}\frac{1}{m}\sum_{k=1}^m X_{kj} + \alpha_{3}\frac{1}{n}\sum_{l=1}^n X_{il} + \alpha_{4}\frac{1}{mn}\sum_{k=1}^m\sum_{l=1}^n X_{kl} }\qquad(3)$$</span></span></p>
+            <p>where <span class="math inline">$\sum\limits_{i=1}^4 \alpha_{i} = 1$</span> and <span class="math inline"><em>α</em><sub><em>i</em></sub> ∈ [0, 1]</span>.</p>
+            <h2 id="prediction-scoring">Prediction scoring</h2>
+            <p>Using the linear filter allows to explore different hypotheses as to which parts of network structure are important for predictive ability. As we assume that the initial value of 0 in the matrix can be a false positive, we give it no weight in the model <span class="math inline"><em>α</em><sub>1</sub> = 0</span>. <strong>TK change from here</strong> We then varied the other parameters on a regular grid of 304 points, where the values for <span class="math inline"><em>α</em><sub>4</sub></span> (impact of connectance), <span class="math inline"><em>α</em><sub>2</sub></span> (impact of the number of hosts), and <span class="math inline"><em>α</em><sub>3</sub></span> (impact of the number of viruses) was varied between 0 and 1. We then applied SVD imputation for each of these parameters combinations for ranks 1 to 3.</p>
+            <p>To rank the predictions made by the SVD-imputation, we took the value for every missing interaction after imputation, and divided it by the initial value, then substracted one. This gives an evidence score in <span class="math inline">ℝ</span>, which we can transform into a probability in <span class="math inline">[0, 1]</span> by taking its logistic; therefore, the final probability of an interaction is defined as</p>
+            <p><span class="math display">$$
+            P(x) = \frac{1}{1+e^{-x}}\,,
+            $$</span></p>
+            <p>where <span class="math inline"><em>x</em></span> is the evidence for this interaction under our scoring system.</p>
+            <h2 id="model-tuning-and-thresholding">Model tuning and thresholding</h2>
+            <p>One of the challenges associated with link prediction in this dataset is that non-interactions are not necessarily true negatives; most are simply missing data. To reach the best prediction, we need to answer three related questions. First, what model to assign initial values performs best? Second, what rank is sufficient to give the most accurate approximation of the matrix? Finally, what threshold on the interaction probability should be applied to the results of the best model at the appropriate rank?</p>
+            <p>To answer this question, we first ran the LF-SVD imputation on a sample of 768 positive and 768 supposed negative interactions, at all ranks from 1 to 20, under the three initial value models above (degree, hybrid, and connectance). For each of these models, we measured the AUC of the ROC curve <strong>REF</strong>. To identify the optimal cutoff in this curve, we selected the probability score that maximizes Youden’s index of informedness, which works as a “total evidence” measure of model confidence, especially in datasets with severe imbalances in prevalence.</p>
+            <div id="tbl:modelselection">
+            <table>
+            <caption>Table 1: Summary statistics of the performance for the top 5 models, ranked according to the area under the ROC curve. For the sake of completeness, the best Youden’s index (at the threshold) is reported, as well as the rates of false discovery and false omission.</caption>
+            <thead>
+            <tr class="header">
+            <th></th>
+            <th>model</th>
+            <th>rank</th>
+            <th>threshold</th>
+            <th>AUC</th>
+            <th>Youden’s index</th>
+            <th>false discovery</th>
+            <th>false omission</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td>1</td>
+            <td>connectance</td>
+            <td>12</td>
+            <td>0.846</td>
+            <td>0.849</td>
+            <td>0.64</td>
+            <td>0.09</td>
+            <td>0.23</td>
+            </tr>
+            <tr class="even">
+            <td>2</td>
+            <td>connectance</td>
+            <td>11</td>
+            <td>0.908</td>
+            <td>0.846</td>
+            <td>0.62</td>
+            <td>0.08</td>
+            <td>0.25</td>
+            </tr>
+            <tr class="odd">
+            <td>3</td>
+            <td>connectance</td>
+            <td>17</td>
+            <td>0.929</td>
+            <td>0.844</td>
+            <td>0.62</td>
+            <td>0.08</td>
+            <td>0.24</td>
+            </tr>
+            <tr class="even">
+            <td>4</td>
+            <td>connectance</td>
+            <td>8</td>
+            <td>0.705</td>
+            <td>0.842</td>
+            <td>0.59</td>
+            <td>0.13</td>
+            <td>0.24</td>
+            </tr>
+            <tr class="odd">
+            <td>5</td>
+            <td>hybrid</td>
+            <td>12</td>
+            <td>0.707</td>
+            <td>0.841</td>
+            <td>0.58</td>
+            <td>0.14</td>
+            <td>0.25</td>
+            </tr>
+            </tbody>
+            </table>
+            </div>
+            <p>The resulst of hyper-parameters tuning is presented in tbl. 1. The best performing model, using network connectance as an initial value, and a rank 12 approximation of the matrix, had a positive predictive value of 0.90, and a negative predictive value of 0.76, for an overall accuracy of 0.82. All things considered, given that the prevalence in the dataset is very low (only six out of every thousand species pair do have an interaction), the best model has strong predictive power. The ROC curve for this model is presented in fig. 2.</p>
+            <figure>
+            <img src="figures/best-model-roc.png" id="fig:roc" alt="Figure 2: ROC curve for the best model, using network connectance as an initial value, and a rank 12 approximation. This model was used to run the prediction of false negatives in the entire dataset." /><figcaption aria-hidden="true">Figure 2: ROC curve for the best model, using network connectance as an initial value, and a rank 12 approximation. This model was used to run the prediction of false negatives in the entire dataset.</figcaption>
+            </figure>
+            <h1 id="results-and-discussion">Results and Discussion</h1>
+            <p>First, we report the top 10 likely hosts for betacoronaviruses, using the connectance of the network as initial values, which are ranked by their final value post imputation; larger values should indicate that the interactions are more likely to be possible. We report the novel hosts (identified post <span class="citation" data-cites="Becker2020PreWil">Becker et al. (2020)</span>, according to <code>https://www.viralemergence.org/betacov</code>). These results are presented in tbl. 2 - the novel hosts are presented in <strong>bold</strong>. Using a rank 2 approximation of the dataset, we have 5 novel hosts, and 4 identified as “suspected” hosts by the <span class="citation" data-cites="Becker2020PreWil">Becker et al. (2020)</span> ensemble model, currently lacking empirical evidence. This suggests that rank 2 contains the most information about the processes generating the data, and can therefore be used to infer other associations.</p>
+            <div id="tbl:top10">
+            <table>
+            <caption>Table 2: Top 10 likely hosts for betacoronaviruses using the connectance of the network as initial values</caption>
+            <thead>
+            <tr class="header">
+            <th>Rank 1</th>
+            <th>Rank 2</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td><strong>Artibeus jamaicensis</strong></td>
+            <td><strong>Hipposideros pomona</strong></td>
+            </tr>
+            <tr class="even">
+            <td><strong>Scotophilus kuhlii</strong></td>
+            <td><strong>Scotophilus kuhlii</strong></td>
+            </tr>
+            <tr class="odd">
+            <td>Molossus rufus</td>
+            <td><strong>Artibeus jamaicensis</strong></td>
+            </tr>
+            <tr class="even">
+            <td>Sturnira lilium</td>
+            <td>Carollia brevicauda</td>
+            </tr>
+            <tr class="odd">
+            <td><strong>Desmodus rotundus</strong></td>
+            <td>Chaerephon pumilus</td>
+            </tr>
+            <tr class="even">
+            <td>Glossophaga soricina</td>
+            <td>Molossus rufus</td>
+            </tr>
+            <tr class="odd">
+            <td>Eptesicus fuscus</td>
+            <td>Glossophaga soricina</td>
+            </tr>
+            <tr class="even">
+            <td>Tadarida brasiliensis</td>
+            <td><strong>Desmodus rotundus</strong></td>
+            </tr>
+            <tr class="odd">
+            <td>Myotis nigricans</td>
+            <td>Sturnira lilium</td>
+            </tr>
+            <tr class="even">
+            <td>Myotis lucifugus</td>
+            <td><strong>Hipposideros larvatus</strong></td>
+            </tr>
+            </tbody>
+            </table>
+            </div>
+            <p>Based on this information, we have also extracted the 10 highest scoring interactions across the entire matrix at rank 2 (Table 2). The results demonstrates that within the entire dataset, including all mammalian hosts and viruses’ genus, 5 out of the 10 highest scoring interactions are involving bat hosts (presented in <em>italic</em>), and 8 out of the 10 interactions are involving the lyssavirus genus. This genus includes the rabies virus (RABV), and other neurotropic rabies-related viruses <span class="citation" data-cites="Warrell2004RabOth">(Warrell and Warrell 2004)</span>.</p>
+            <p>[Table 2: Top 10 likely missing interactions across the entire dataset using the connectance of the network as initial values]</p>
+            <table>
+            <thead>
+            <tr class="header">
+            <th>Hosts species</th>
+            <th>Viruses genus</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td>Sus scrofa</td>
+            <td>Lyssavirus</td>
+            </tr>
+            <tr class="even">
+            <td><em>Hipposideros armiger</em></td>
+            <td>Lyssavirus</td>
+            </tr>
+            <tr class="odd">
+            <td>Rattus norvegicus</td>
+            <td>Lyssavirus</td>
+            </tr>
+            <tr class="even">
+            <td>Myodes glareolus</td>
+            <td>Lyssavirus</td>
+            </tr>
+            <tr class="odd">
+            <td><em>Pipistrellus abramus</em></td>
+            <td>Lyssavirus</td>
+            </tr>
+            <tr class="even">
+            <td>Sus scrofa</td>
+            <td>Orbivirus</td>
+            </tr>
+            <tr class="odd">
+            <td>Capra hircus</td>
+            <td>Alphavirus</td>
+            </tr>
+            <tr class="even">
+            <td><em>Rhinolophus sinicus</em></td>
+            <td>Lyssavirus</td>
+            </tr>
+            <tr class="odd">
+            <td><em>Myotis ricketti</em></td>
+            <td>Lyssavirus</td>
+            </tr>
+            <tr class="even">
+            <td><em>Rhinolophus affinis</em></td>
+            <td>Lyssavirus</td>
+            </tr>
+            </tbody>
+            </table>
+            <p>Once those results were obtain, further investigations in the form of literature surveys allowed to identify that the interaction between <em>Pipistrellus</em> abramus} and lyssaviruses has already been noted by <span class="citation" data-cites="Hu2018LysJap">Hu et al. (2018)</span>; <span class="citation" data-cites="Shipley2019BatVir">Shipley et al. (2019)</span> reported lyssavirus prevalence in the genus <em>Pipstrellus</em>, <em>Myotis</em>, and <em>Rhinolophus</em>. Other confirmed hosts of lyssaviruses are <em>Sus scrofa</em> <span class="citation" data-cites="Sato2004GenPhy">(Sato et al. 2004)</span>, and <em>Rattus norvegicus</em> <span class="citation" data-cites="Wang2014RabRab">(Wang, Tang, and Liang 2014)</span>. Surveillance for novel lyssaviruses infections is of great public health interest, since the rabies virus is fatal in all cases, once the onset of clinical symptoms has started <span class="citation" data-cites="Banyard2017ImpNov">(Banyard and Fooks 2017)</span>. Although it is recognized that bats are identified as reservoir hosts for lyssaviruses, the mechanism allowing the maintenance of the virus in those populations is still poorly understood <span class="citation" data-cites="Banyard2017ImpNov">(Banyard and Fooks 2017)</span>, and these predictions of interactions might serve as guidance in the monitoring of new infections.</p>
+            <p>The two non-lyssaviruses associations have been previously reported in the literature (<em>Sus scrofa</em> and orbivirus by <span class="citation" data-cites="Belaganahalli2015GenCha">Belaganahalli et al. (2015)</span>; <em>Capra hircus</em> and the equine encephalomyelitis caused by an alphavirus as early as <span class="citation" data-cites="Pursell1972NatOcc">Pursell et al. (1972)</span>). This suggests that Singular Value Decomposition of available data on host-virus associations can uncover results that have been reported in the primary literature, but not incorporated in the main databases used in the field; based on the fact that the majority of the top 10 overall associations were able to be validated from the literature, we suggest that interactions that have no empirical evidence could be targets for additional sampling.</p>
+            <p>The initial value to be used for the imputation was then assigned according to the linear filter, as presented in the method section. The Table 3 presents the number of novel hosts predicted by the model, according to the coefficients used for the filter and to the rank.</p>
+            <p>[Table 3: Number of novel hosts for betacoronaviruses correctly predicted by the model using linear filtering for the attribution of initial values]</p>
+            <table>
+            <thead>
+            <tr class="header">
+            <th style="text-align: center;">Alpha</th>
+            <th style="text-align: center;">Rank 1</th>
+            <th style="text-align: center;">Rank 2</th>
+            <th style="text-align: center;">Rank 3</th>
+            <th style="text-align: center;">Rank 4</th>
+            <th style="text-align: center;">Rank 5</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td style="text-align: center;"><strong>[0, 0, 0, 1]</strong></td>
+            <td style="text-align: center;">3</td>
+            <td style="text-align: center;">3</td>
+            <td style="text-align: center;">1</td>
+            <td style="text-align: center;">3</td>
+            <td style="text-align: center;">4</td>
+            </tr>
+            <tr class="even">
+            <td style="text-align: center;"><strong>[0, <span class="math inline">$\frac{1}{2}$</span>, <span class="math inline">$\frac{1}{2}$</span>, 0]</strong></td>
+            <td style="text-align: center;">3</td>
+            <td style="text-align: center;">3</td>
+            <td style="text-align: center;">1</td>
+            <td style="text-align: center;">3</td>
+            <td style="text-align: center;">3</td>
+            </tr>
+            <tr class="odd">
+            <td style="text-align: center;"><strong>[0, <span class="math inline">$\frac{1}{3}$</span>, <span class="math inline">$\frac{1}{3}$</span>, <span class="math inline">$\frac{1}{3}$</span>]</strong></td>
+            <td style="text-align: center;">3</td>
+            <td style="text-align: center;">3</td>
+            <td style="text-align: center;">1</td>
+            <td style="text-align: center;">4</td>
+            <td style="text-align: center;">2</td>
+            </tr>
+            <tr class="even">
+            <td style="text-align: center;"><strong>[0, 1, 0, 0]</strong></td>
+            <td style="text-align: center;">3</td>
+            <td style="text-align: center;">3</td>
+            <td style="text-align: center;">1</td>
+            <td style="text-align: center;">3</td>
+            <td style="text-align: center;">3</td>
+            </tr>
+            <tr class="odd">
+            <td style="text-align: center;"><strong>[0, 0, 1, 0]</strong></td>
+            <td style="text-align: center;">3</td>
+            <td style="text-align: center;">3</td>
+            <td style="text-align: center;">1</td>
+            <td style="text-align: center;">4</td>
+            <td style="text-align: center;">3</td>
+            </tr>
+            </tbody>
+            </table>
+            <p>From the results presented in Table 3, it is possible to see that when using linear filtering for the assignment of initial values, the choice of the <span class="math inline"><em>α</em></span> parameters does not impact the accuracy of the predictions for the first three rank. The fourth and fifth rank then showed a variation per <span class="math inline"><em>α</em></span> values. The highest scoring interactions for every combinations was then examined and the variation of its value before and after the imputation has been calculated, and the results obtained are presented in Table 4.</p>
+            <p>[Table 4: Variation of the value pre and post imputation for the highest scoring interaction at every rank]</p>
+            <table>
+            <thead>
+            <tr class="header">
+            <th style="text-align: center;">Rank 1</th>
+            <th style="text-align: center;">Rank 2</th>
+            <th style="text-align: center;">Rank 3</th>
+            <th style="text-align: center;">Rank 4</th>
+            <th style="text-align: center;">Rank 5</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td style="text-align: center;">0.536</td>
+            <td style="text-align: center;">0.765</td>
+            <td style="text-align: center;">0.700</td>
+            <td style="text-align: center;">0.990</td>
+            <td style="text-align: center;">1.261</td>
+            </tr>
+            </tbody>
+            </table>
+            <p>This variation was not influenced by the <span class="math inline"><em>α</em></span> parameters, but only by the rank used. The variation calculated increased as the rank got higher.</p>
+            <p>Being able to identify intermediate animal hosts for potential zoonotic pathogens is an important step in the fight against potential threats to global public health. Using SVD as an imputation method to predict those interactions has demonstrated its potential to achieve this goal by correctly identifying the majority of the most likely associations, as validated by literature surveys, and by suggesting interactions with no empirical evidence as targets for additional sampling. Host-virus associations are a challenging imputation problem, because organized datasets are scarce – as a result, a lot of missing associations are reported in the literature, but not available in an easily usable format. Yet this also presents an opportunity to validate the performance of recommender systems that is far more interesting than cross-fold or leave-one-out validation: the existence of these interactions in the literature can provide validation on data that have never been used in the modeling process, and therefore provide an accurate estimate of how frequently existing interactions are identified. By this measure, that most of the top 10 recommendations on this dataset were validated through <em>de novo</em> sampling (for bat hosts of betacoronaviruses) or by a literature survey (for the global dataset) is a strong indication that SVD is able to uncover likely host-virus pairs.</p>
+            <p>Future work on the use of SVD for virus host associations will have to adress the question of the initial value used in the imputation process in further details. As of now, we relied on the average number of interactions in the matrix, and on weighted allocations for different aspects of the network structure, based on <span class="citation" data-cites="Stock2017LinFil">Stock et al. (2017)</span> work on linear filtering. This method can provide a good baseline estimate of how likely it is that a missing interaction could actually exist (and in fact was developed for this purpose). For this reason, we are confident that the performance of the approach can further be improved by fine-tuning the choice of the initial value used for imputation, according to the dataset used, or by relying on ensemble models that would aggregate the output of the best recommenders. Combining an accurate model for the initial value with the SVD imputation is likely to generate predicted interactions that are strong candidates for empirical validation.</p>
+            <p><strong>Acknowledgements:</strong> This research was enabled in part by support provided by Calcul Québec (www.calculquebec.ca) and Compute Canada (www.computecanada.ca). TP and CC were funded by IVADO through the rapid response to COVID special initiative.</p>
+            <h1 class="unnumbered" id="references">References</h1>
+            <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+            <div id="ref-Albery2020PreGlo" class="csl-entry" role="doc-biblioentry">
+            Albery, Gregory F., Evan A. Eskew, Noam Ross, and Kevin J. Olival. 2020. <span>“Predicting the Global Mammalian Viral Sharing Network Using Phylogeography.”</span> <em>Nature Communications</em> 11 (1): 2260. <a href="https://doi.org/10.1038/s41467-020-16153-4">https://doi.org/10.1038/s41467-020-16153-4</a>.
+            </div>
+            <div id="ref-Banyard2017ImpNov" class="csl-entry" role="doc-biblioentry">
+            Banyard, Ashley C., and Anthony R. Fooks. 2017. <span>“The Impact of Novel Lyssavirus Discovery.”</span> <em>Microbiology Australia</em> 38 (1): 17–21.
+            </div>
+            <div id="ref-Becker2020PreWil" class="csl-entry" role="doc-biblioentry">
+            Becker, Daniel J., Gregory F. Albery, Anna R. Sjodin, Timothée Poisot, Tad A. Dallas, Evan A. Eskew, Maxwell J. Farrell, et al. 2020. <span>“Predicting Wildlife Hosts of Betacoronaviruses for SARS-CoV-2 Sampling Prioritization.”</span> <em>bioRxiv</em>, May, 2020.05.22.111344. <a href="https://doi.org/10.1101/2020.05.22.111344">https://doi.org/10.1101/2020.05.22.111344</a>.
+            </div>
+            <div id="ref-Belaganahalli2015GenCha" class="csl-entry" role="doc-biblioentry">
+            Belaganahalli, Manjunatha N., Sushila Maan, Narender S. Maan, Joe Brownlie, Robert Tesh, Houssam Attoui, and Peter P. C. Mertens. 2015. <span>“Genetic Characterization of the Tick-Borne Orbiviruses.”</span> <em>Viruses</em> 7 (5): 2185–2209. <a href="https://doi.org/10.3390/v7052185">https://doi.org/10.3390/v7052185</a>.
+            </div>
+            <div id="ref-Bezanson2017JulFre" class="csl-entry" role="doc-biblioentry">
+            Bezanson, J., A. Edelman, S. Karpinski, and V. Shah. 2017. <span>“Julia: A Fresh Approach to Numerical Computing.”</span> <em>SIAM Review</em> 59 (1): 65–98. <a href="https://doi.org/10.1137/141000671">https://doi.org/10.1137/141000671</a>.
+            </div>
+            <div id="ref-Eckart1936AppOne" class="csl-entry" role="doc-biblioentry">
+            Eckart, Carl, and Gale Young. 1936. <span>“The Approximation of One Matrix by Another of Lower Rank.”</span> <em>Psychometrika</em> 1 (3): 211–18. <a href="https://doi.org/10.1007/BF02288367">https://doi.org/10.1007/BF02288367</a>.
+            </div>
+            <div id="ref-Forsythe1967ComSol" class="csl-entry" role="doc-biblioentry">
+            Forsythe, George, and Cleve Moler. 1967. <em>Computer Solution of Linear Algebraic Systems</em>. Englewood Cliffs, New Jersey: Prentice Hall.
+            </div>
+            <div id="ref-Golub1987GenEck" class="csl-entry" role="doc-biblioentry">
+            Golub, G. H., Alan Hoffman, and G. W. Stewart. 1987. <span>“A Generalization of the Eckart-Young-Mirsky Matrix Approximation Theorem.”</span> <em>Linear Algebra and Its Applications</em> 88-89 (April): 317–27. <a href="https://doi.org/10.1016/0024-3795(87)90114-5">https://doi.org/10.1016/0024-3795(87)90114-5</a>.
+            </div>
+            <div id="ref-Golub1971SinVal" class="csl-entry" role="doc-biblioentry">
+            Golub, Gene H., and Christian Reinsch. 1971. <span>“Singular Value Decomposition and Least Squares Solutions.”</span> In <em>Linear Algebra</em>, 134–51. Springer.
+            </div>
+            <div id="ref-Han2016FutDir" class="csl-entry" role="doc-biblioentry">
+            Han, Barbara A., and John M. Drake. 2016. <span>“Future Directions in Analytics for Infectious Disease Intelligence: Toward an Integrated Warning System for Emerging Pathogens.”</span> <em>EMBO Reports</em> 17 (6): 785–89. <a href="https://doi.org/10.15252/embr.201642534">https://doi.org/10.15252/embr.201642534</a>.
+            </div>
+            <div id="ref-Hu2018LysJap" class="csl-entry" role="doc-biblioentry">
+            Hu, Shu-Chia, Chao-Lung Hsu, Ming-Shiuh Lee, Yang-Chang Tu, Jen-Chieh Chang, Chieh-Hao Wu, Shu-Hwae Lee, et al. 2018. <span>“Lyssavirus in Japanese Pipistrelle, Taiwan - Volume 24, Number 4April 2018 - Emerging Infectious Diseases Journal - CDC.”</span> <em>Emerging Infectious Diseases</em>. <a href="https://doi.org/10.3201/eid2404.171696">https://doi.org/10.3201/eid2404.171696</a>.
+            </div>
+            <div id="ref-Johnson2020GloShi" class="csl-entry" role="doc-biblioentry">
+            Johnson, Christine K., Peta L. Hitchens, Pranav S. Pandit, Julie Rushmore, Tierra Smiley Evans, Cristin C. W. Young, and Megan M. Doyle. 2020. <span>“Global Shifts in Mammalian Population Trends Reveal Key Predictors of Virus Spillover Risk.”</span> <em>Proceedings of the Royal Society B: Biological Sciences</em> 287 (1924): 20192736. <a href="https://doi.org/10.1098/rspb.2019.2736">https://doi.org/10.1098/rspb.2019.2736</a>.
+            </div>
+            <div id="ref-Jones2008GloTre" class="csl-entry" role="doc-biblioentry">
+            Jones, Kate E., Nikkita G. Patel, Marc A. Levy, Adam Storeygard, Deborah Balk, John L. Gittleman, and Peter Daszak. 2008. <span>“Global Trends in Emerging Infectious Diseases.”</span> <em>Nature</em> 451 (7181): 990–93. <a href="https://doi.org/10.1038/nature06536">https://doi.org/10.1038/nature06536</a>.
+            </div>
+            <div id="ref-Lloyd-Smith2009EpiDyn" class="csl-entry" role="doc-biblioentry">
+            Lloyd-Smith, James O., Dylan George, Kim M. Pepin, Virginia E. Pitzer, Juliet R. C. Pulliam, Andrew P. Dobson, Peter J. Hudson, and Bryan T. Grenfell. 2009. <span>“Epidemic Dynamics at the Human-Animal Interface.”</span> <em>Science</em> 326 (5958): 1362–67. <a href="https://doi.org/10.1126/science.1177345">https://doi.org/10.1126/science.1177345</a>.
+            </div>
+            <div id="ref-Plowright2017PatZoo" class="csl-entry" role="doc-biblioentry">
+            Plowright, Raina K., Colin R. Parrish, Hamish McCallum, Peter J. Hudson, Albert I. Ko, Andrea L. Graham, and James O. Lloyd-Smith. 2017. <span>“Pathways to Zoonotic Spillover.”</span> <em>Nature Reviews Microbiology</em> 15 (8): 502–10. <a href="https://doi.org/10.1038/nrmicro.2017.45">https://doi.org/10.1038/nrmicro.2017.45</a>.
+            </div>
+            <div id="ref-Pursell1972NatOcc" class="csl-entry" role="doc-biblioentry">
+            Pursell, A. R., J. C. Peckham, J. R. Cole, W. C. Stewart, and F. E. Mitchell. 1972. <span>“Naturally Occurring and Artificially Induced Eastern Encephalomyelitis in Pigs.”</span> <em>Journal of the American Veterinary Medical Association</em> 161 (10): 1143–47.
+            </div>
+            <div id="ref-Ren2006FulGen" class="csl-entry" role="doc-biblioentry">
+            Ren, Wuze, Wendong Li, Meng Yu, Pei Hao, Yuan Zhang, Peng Zhou, Shuyi Zhang, et al. 2006. <span>“Full-Length Genome Sequences of Two SARS-Like Coronaviruses in Horseshoe Bats and Genetic Variation Analysis.”</span> <em>Journal of General Virology</em> 87 (11): 3355–59. <a href="https://doi.org/10.1099/vir.0.82220-0">https://doi.org/10.1099/vir.0.82220-0</a>.
+            </div>
+            <div id="ref-Sato2004GenPhy" class="csl-entry" role="doc-biblioentry">
+            Sato, Go, Takuya Itou, Youko Shoji, Yasuo Miura, Takeshi Mikami, Mikako Ito, Ichiro Kurane, et al. 2004. <span>“Genetic and Phylogenetic Analysis of Glycoprotein of Rabies Virus Isolated from Several Species in Brazil.”</span> <em>Journal of Veterinary Medical Science</em> 66 (7): 747–53. <a href="https://doi.org/10.1292/jvms.66.747">https://doi.org/10.1292/jvms.66.747</a>.
+            </div>
+            <div id="ref-Shipley2019BatVir" class="csl-entry" role="doc-biblioentry">
+            Shipley, Rebecca, Edward Wright, David Selden, Guanghui Wu, James Aegerter, Anthony R Fooks, and Ashley C Banyard. 2019. <span>“Bats and Viruses: Emergence of Novel Lyssaviruses and Association of Bats with Viral Zoonoses in the EU.”</span> <em>Tropical Medicine and Infectious Disease</em> 4 (1). <a href="https://doi.org/10.3390/tropicalmed4010031">https://doi.org/10.3390/tropicalmed4010031</a>.
+            </div>
+            <div id="ref-Stock2017LinFil" class="csl-entry" role="doc-biblioentry">
+            Stock, Michiel, Timothée Poisot, Willem Waegeman, and Bernard De Baets. 2017. <span>“Linear Filtering Reveals False Negatives in Species Interaction Data.”</span> <em>Scientific Reports</em> 7 (April): 45908. <a href="https://doi.org/10.1038/srep45908">https://doi.org/10.1038/srep45908</a>.
+            </div>
+            <div id="ref-Wang2014RabRab" class="csl-entry" role="doc-biblioentry">
+            Wang, Lihua, Qing Tang, and Guodong Liang. 2014. <span>“Rabies and Rabies Virus in Wildlife in Mainland China, 1990.”</span> <em>International Journal of Infectious Diseases</em> 25 (August): 122–29. <a href="https://doi.org/10.1016/j.ijid.2014.04.016">https://doi.org/10.1016/j.ijid.2014.04.016</a>.
+            </div>
+            <div id="ref-Warrell2004RabOth" class="csl-entry" role="doc-biblioentry">
+            Warrell, M. J., and D. A. Warrell. 2004. <span>“Rabies and Other Lyssavirus Diseases.”</span> <em>The Lancet</em> 363 (9413): 959–69. <a href="https://doi.org/10.1016/S0140-6736(04)15792-9">https://doi.org/10.1016/S0140-6736(04)15792-9</a>.
+            </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <h2>Affiliations</h2> 
+            <sup>1</sup>&nbsp;Département de Sciences Biologiques, Université de Montréal; <sup>2</sup>&nbsp;Department of Biology, Georgetown University; <sup>3</sup>&nbsp;Department of Biology, University of Oklahoma; <sup>4</sup>&nbsp;Center for Global Health Science and Security, Georgetown University Medical Center; <sup>5</sup>&nbsp;Department of Microbiology and Immunology, Georgetown University Medical Center; <sup>6</sup>&nbsp;Québec Centre for Biodiversity Sciences
+        </div>
+    </footer>
+    
+    
+</body>
+</html>

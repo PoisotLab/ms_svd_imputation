@@ -1,0 +1,24 @@
+\begin{figure}
+\hypertarget{fig:lowrank}{%
+\centering
+\includegraphics{figures/lowrank_illustration.png}
+\caption{Overview of the dataset (yellow means interaction is more
+likely, blue means interactions is less likely) at different levels of
+approximation. At rank very low rank (top row; from left to right,
+\(r=1\) and \(r=3\)) the matrix is mostly capturing the degree of the
+different species. At higher ranks (bottom row; from left to right,
+\(r=10\) and \(r=60\)), the matrix is capturing increasing differences
+in species interactions.}\label{fig:lowrank}
+}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\hypertarget{fig:roc}{%
+\centering
+\includegraphics{figures/best-model-roc.png}
+\caption{ROC curve for the best model, using network connectance as an
+initial value, and a rank 12 approximation. This model was used to run
+the prediction of false negatives in the entire dataset.}\label{fig:roc}
+}
+\end{figure}
