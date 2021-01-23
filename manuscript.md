@@ -2,13 +2,10 @@
 bibliography: [references.bib]
 ---
 
-The «science of survival» concept has been introduced by Potter in 1970, and
-consists in a reflection on the interdependence between a host and its
-environment. Potter emphasizes the fact that the humanity's survival relies on
-the surrounding biological and ecological systems, their proper functioning, and
-can be influenced by their dynamics (Potter, 1970). The current pandemic of
-SARS-CoV-2 is a stark reminder that movement of viruses through novel animal
-hosts, and ultimately to human through zoonotic spillovers
+**TK** rework this paragraph: need to predict host-virus associations
+
+The current pandemic of SARS-CoV-2 is a stark reminder that movement of viruses
+through novel animal hosts, and ultimately to human through zoonotic spillovers
 [@Plowright2017PatZoo], requires that we understand the complexity of our
 biological surroundings. Indeed, the fact that the majority of emerging
 infectious diseases are caused by zoonotic pathogens from wildlife sources
@@ -40,6 +37,11 @@ ensemble models. Here, we explore an approach focusing on the first stage of
 zoonoses dynamics, by using the Singular Value Decomposition (SVD) as an
 imputation method for identifying unobserved host-virus interactions, acting as
 potential intermediate hosts in diseases transmissions.
+
+**TK** SVD is a way to do link prediction in the absence of external
+information, but we can rely on info contained in the network itself
+
+**TK** main results: optimal rank, number of new associations, top 10 zoonoses
 
 # Methods
 
